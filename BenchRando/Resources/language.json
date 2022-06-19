@@ -1,0 +1,667 @@
+[
+  {
+    "Sheet": "UI",
+    "Key": "BENCH_SHOP_DESC",
+    "Value": "Pay me and I'll talk."
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Dirtmouth",
+    "Value": "Dirtmouth Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Mato",
+    "Value": "Mato Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crossroads_Hot_Springs",
+    "Value": "Crossroads Hot Springs Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crossroads_Stag",
+    "Value": "Crossroads Stag Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Salubra",
+    "Value": "Salubra Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Ancestral_Mound",
+    "Value": "Ancestral Mound Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Black_Egg_Temple",
+    "Value": "Black Egg Temple Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Waterfall",
+    "Value": "Waterfall Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Stone_Sanctuary",
+    "Value": "Stone Sanctuary Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Greenpath_Toll",
+    "Value": "Greenpath Toll Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Greenpath_Stag",
+    "Value": "Greenpath Stag Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Lake_of_Unn",
+    "Value": "Lake of Unn Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Sheo",
+    "Value": "Sheo Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Archives",
+    "Value": "Archives Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Queen's_Station",
+    "Value": "Queen's Station Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Leg_Eater",
+    "Value": "Leg Eater Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Bretta",
+    "Value": "Bretta Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Mantis_Village",
+    "Value": "Mantis Village Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Quirrel",
+    "Value": "City Quirrel Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-City_Toll",
+    "Value": "City Toll Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-City_Storerooms",
+    "Value": "City Storerooms Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Watcher's_Spire",
+    "Value": "Watcher's Spire Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-King's_Station",
+    "Value": "King's Station Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Pleasure_House",
+    "Value": "Pleasure House Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Waterways",
+    "Value": "Waterways Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Godhome_Atrium",
+    "Value": "Godhome Atrium Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Godhome_Roof",
+    "Value": "Godhome Roof Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Hall_of_Gods",
+    "Value": "Hall of Gods Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Deepnest_Hot_Springs",
+    "Value": "Deepnest Hot Springs Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Failed_Tramway",
+    "Value": "Failed Tramway Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Beast's_Den",
+    "Value": "Beast's Den Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Basin_Toll",
+    "Value": "Basin Toll Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Hidden_Station",
+    "Value": "Hidden Station Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Oro",
+    "Value": "Oro Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Camp",
+    "Value": "Camp Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Colosseum",
+    "Value": "Colosseum Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Hive",
+    "Value": "Hive Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Peak_Dark_Room",
+    "Value": "Dark Room Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crystal_Guardian",
+    "Value": "Crystal Guardian Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Grounds_Stag",
+    "Value": "Grounds Stag Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Grey_Mourner",
+    "Value": "Grey Mourner Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Gardens_Cornifer",
+    "Value": "Gardens Cornifer Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Gardens_Toll",
+    "Value": "Gardens Toll Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Gardens_Stag",
+    "Value": "Gardens Stag Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Palace_Entrance",
+    "Value": "Palace Entrance Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Palace_Atrium",
+    "Value": "Palace Atrium Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Palace_Balcony",
+    "Value": "Palace Balcony Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Upper_Tram",
+    "Value": "Upper Tram Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Lower_Tram",
+    "Value": "Lower Tram Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Stag_Nest",
+    "Value": "Stag Nest Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Cliffs_Overhang",
+    "Value": "Cliff Overhang Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Joni's_Repose",
+    "Value": "Joni's Repose Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Nightmare_Lantern",
+    "Value": "Nightmare Lantern Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Blasted_Plains",
+    "Value": "Blasted Plains Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Baldur_Cavern",
+    "Value": "Baldur Cavern Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crossroads_Center",
+    "Value": "Crossroads Center Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Myla",
+    "Value": "Myla Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Grubfather",
+    "Value": "Grubfather Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crossroads_Elevator",
+    "Value": "Crossroads Elevator Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Fungal_Road",
+    "Value": "Fungal Road Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Pilgrim's_Start",
+    "Value": "Pilgrim's Start Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Canyon_Depths",
+    "Value": "Canyon Depths Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Canyon's_End",
+    "Value": "Canyon's End Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Overgrown_Atrium",
+    "Value": "Overgrown Atrium Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Overgrown_Mound",
+    "Value": "Overgrown Mound Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Millibelle",
+    "Value": "Millibelle Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Fungal_Core",
+    "Value": "Fungal Core Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Fungal_Tower",
+    "Value": "Fungal Tower Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Cloth's_Ambush",
+    "Value": "Cloth's Ambush Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Pilgrim's_End",
+    "Value": "Pilgrim's End Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Mantis_Hub",
+    "Value": "Mantis Hub Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Prophet's_Gate",
+    "Value": "Prophet's Gate Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-City_Entrance",
+    "Value": "City Entrance Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Inner_Sanctum",
+    "Value": "Inner Sanctum Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Outer_Sanctum",
+    "Value": "Outer Sanctum Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-City_Fountain",
+    "Value": "City Fountain Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Nailsmith",
+    "Value": "Nailsmith Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Flooded_Stag",
+    "Value": "Flooded Stag Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Zote's_Skyway",
+    "Value": "Zote's Skyway Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Watcher's_Skyway",
+    "Value": "Watcher's Skyway Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Tower_of_Love",
+    "Value": "Tower of Love Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Hive_Hideaway",
+    "Value": "Hive Hideaway Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Pure_Altar",
+    "Value": "Pure Altar Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Lurker's_Overlook",
+    "Value": "Lurker's Overlook Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Edge_Summit",
+    "Value": "Edge Summit Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Bardoon",
+    "Value": "Bardoon Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Bardoon's_Tail",
+    "Value": "Bardoon's Tail Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-West_Lake_Shore",
+    "Value": "West Lake Shore Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-East_Lake_Shore",
+    "Value": "East Lake Shore Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Spirits'_Glade",
+    "Value": "Spirits' Glade Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crypts",
+    "Value": "Crypts Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Nosk's_Lair",
+    "Value": "Nosk's Lair Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Weaver's_Den",
+    "Value": "Weaver's Den Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Distant_Reservoir",
+    "Value": "Distant Reservoir Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Deepnest_Gate",
+    "Value": "Deepnest Gate Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Distant_Stag",
+    "Value": "Distant Stag Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Abyss_Workshop",
+    "Value": "Abyss Workshop Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Far_Basin",
+    "Value": "Far Basin Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Basin_Hub",
+    "Value": "Basin Hub Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Palace_Grounds",
+    "Value": "Palace Grounds Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Traitor's_Grave",
+    "Value": "Traitor's Grave Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Fort_Loodle",
+    "Value": "Fort Loodle Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Far_Gardens",
+    "Value": "Far Gardens Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Dark_Gardens",
+    "Value": "Dark Gardens Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Gardens_Atrium",
+    "Value": "Gardens Atrium Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Peak_Entrance",
+    "Value": "Peak Entrance Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crown_Ascent",
+    "Value": "Crown Ascent Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crystallized_Mound",
+    "Value": "Crystal Mound Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crusher_Refuge",
+    "Value": "Crusher Refuge Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Western_Peak",
+    "Value": "Western Peak Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Quirrel_Peak",
+    "Value": "Quirrel Peak Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Unn's_Chamber",
+    "Value": "Unn's Chamber Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Gulka_Gulley",
+    "Value": "Gulka Gulley Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Hunter's_Hideout",
+    "Value": "Hunter's Hideout Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Duranda's_Trial",
+    "Value": "Duranda's Trial Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Greenpath_Entrance",
+    "Value": "Greenpath Entrance Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Defender's_Repose",
+    "Value": "Defender's Repose Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Hermit's_Approach",
+    "Value": "Hermit's Approach Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Waterways_Entrance",
+    "Value": "Waterways Entrance Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Isma's_Grove",
+    "Value": "Isma's Grove Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Acid_Sluice_East",
+    "Value": "Acid Sluice East Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Acid_Sluice_West",
+    "Value": "Acid Sluice West Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Fort_Flukefey",
+    "Value": "Fort Flukefey Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Destroyed_Tram",
+    "Value": "Destroyed Tram Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Kingsmould_Duelist",
+    "Value": "Kingsmould Duelist Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Palace_West",
+    "Value": "Palace West Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Sawblade_Choir",
+    "Value": "Sawblade Choir Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Palace_East",
+    "Value": "Palace East Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Thorny_Respite",
+    "Value": "Thorny Respite Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Palace_Workshop",
+    "Value": "Palace Workshop Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Throne_Approach",
+    "Value": "Throne Approach Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Path_Midpoint",
+    "Value": "Path Midpoint Bench"
+  }
+]
