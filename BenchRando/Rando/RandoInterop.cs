@@ -78,6 +78,8 @@ namespace BenchRando.Rando
                     cbm.AddBench(def.Name, bdg);
                 }
                 ItemChangerMod.Modules.GetOrAdd<IC.BRLocalSettingsModule>().LS = LS;
+                ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.PlayerDataEditModule>()
+                    .AddPDEdit(nameof(PlayerData.charmBenchMsg), true);
             }
         }
 

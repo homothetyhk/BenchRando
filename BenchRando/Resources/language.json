@@ -486,6 +486,11 @@
   },
   {
     "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Deepnest_Maze",
+    "Value": "Deepnest Maze Bench"
+  },
+  {
+    "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Abyss_Workshop",
     "Value": "Abyss Workshop Bench"
   },
@@ -558,6 +563,11 @@
     "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Quirrel_Peak",
     "Value": "Quirrel Peak Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Peak_Ravine",
+    "Value": "Peak Ravine Bench"
   },
   {
     "Sheet": "UI",

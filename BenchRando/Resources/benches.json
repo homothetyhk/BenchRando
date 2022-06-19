@@ -367,10 +367,18 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT)",
+    "Logic": "Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT) | Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | AIRSTALL + ROOMSOUL | TERMINALSHADESKIPS) | Bench-Bretta",
     "LogicOverrides": [
       {
         "name": "Fungus2_13",
+        "logic": "ORIG | Bench-Bretta + (RIGHTDASH | RIGHTSUPERDASH | ANYCLAW | WINGS | ENEMYPOGOS | PRECISEMOVEMENT)"
+      },
+      {
+        "name": "Fungus2_13[left3]",
+        "logic": "ORIG | Bench-Bretta"
+      },
+      {
+        "name": "Geo_Rock-Mantis_Outskirts_Alcove",
         "logic": "ORIG | Bench-Bretta"
       }
     ],
@@ -554,7 +562,7 @@
       },
       {
         "name": "Waterways_02[bot2]",
-        "logic": "ORIG | Bench-Waterways + (ANYCLAW | WINGS | RIGHTSUPERDASH | ENEMYPOGOS + SWIM | ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH)"
+        "logic": "ORIG | Bench-Waterways + (ANYCLAW | WINGS | RIGHTSUPERDASH | SWIM | ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH)"
       },
       {
         "name": "Rancid_Egg-Waterways_Main",
@@ -2209,6 +2217,27 @@
     ],
     "ExtraUnlockActions": []
   },
+  "Bench-Deepnest_Maze": {
+    "Name": "Bench-Deepnest_Maze",
+    "SceneName": "Deepnest_30",
+    "BenchAreaName": "Deepnest",
+    "BenchMenuName": "Maze",
+    "MapZone": "DEEPNEST",
+    "DefaultStyle": "Beast",
+    "IsBaseBench": false,
+    "IsRandomizable": true,
+    "X": 37.4,
+    "Y": 147.4,
+    "Logic": "Deepnest_30[top1]",
+    "LogicOverrides": [
+      {
+        "name": "Deepnest_30[top1]",
+        "logic": "ORIG | Bench-Deepnest_Maze"
+      }
+    ],
+    "ExtraDeployers": [],
+    "ExtraUnlockActions": []
+  },
   "Bench-Abyss_Workshop": {
     "Name": "Bench-Abyss_Workshop",
     "SceneName": "Abyss_09",
@@ -2579,6 +2608,27 @@
         "MatchType": "Path"
       }
     ],
+    "ExtraUnlockActions": []
+  },
+  "Bench-Peak_Ravine": {
+    "Name": "Bench-Peak_Ravine",
+    "SceneName": "Mines_28",
+    "BenchAreaName": "Peak",
+    "BenchMenuName": "Ravine",
+    "MapZone": "MINES",
+    "DefaultStyle": "Right",
+    "IsBaseBench": false,
+    "IsRandomizable": true,
+    "X": 4.9,
+    "Y": 27.4,
+    "Logic": "Mines_28[left1] | Mines_28[door1] | Bench-Peak_Ravine",
+    "LogicOverrides": [
+      {
+        "name": "Mines_28[bot1]",
+        "logic": "ORIG | Bench-Peak_Ravine"
+      }
+    ],
+    "ExtraDeployers": [],
     "ExtraUnlockActions": []
   },
   "Bench-Unn's_Chamber": {

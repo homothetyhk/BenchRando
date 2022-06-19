@@ -109,6 +109,7 @@ namespace BenchRando
         public const string Bench_Distant_Reservoir = "Bench-Distant_Reservoir";
         public const string Bench_Deepnest_Gate = "Bench-Deepnest_Gate";
         public const string Bench_Distant_Stag = "Bench-Distant_Stag";
+        public const string Bench_Deepnest_Maze = "Bench-Deepnest_Maze";
         public const string Bench_Abyss_Workshop = "Bench-Abyss_Workshop";
         public const string Bench_Far_Basin = "Bench-Far_Basin";
         public const string Bench_Basin_Hub = "Bench-Basin_Hub";
@@ -124,6 +125,7 @@ namespace BenchRando
         public const string Bench_Crusher_Refuge = "Bench-Crusher_Refuge";
         public const string Bench_Western_Peak = "Bench-Western_Peak";
         public const string Bench_Quirrel_Peak = "Bench-Quirrel_Peak";
+        public const string Bench_Peak_Ravine = "Bench-Peak_Ravine";
         public const string Bench_Unns_Chamber = "Bench-Unn's_Chamber";
         public const string Bench_Gulka_Gulley = "Bench-Gulka_Gulley";
         public const string Bench_Hunters_Hideout = "Bench-Hunter's_Hideout";
