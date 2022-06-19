@@ -22,11 +22,11 @@ namespace BenchRando.Rando
 
         private static void SetupRefs(RequestBuilder rb)
         {
-            if (!RandoInterop.Settings.IsEnabled()) return;
+            if (!RandoInterop.IsEnabled()) return;
 
             // We make refs for all randomized or nonrandomized benches in use.
             // No refs for benches which were not selected for the seed.
-            foreach (string s in RandoInterop.Benches)
+            foreach (string s in RandoInterop.LS.Benches)
             {
                 BenchDef def = BRData.BenchLookup[s];
 
@@ -39,7 +39,7 @@ namespace BenchRando.Rando
                     info.getLocationDef = () => def.GetRMLocationDef();
                     info.onPlacementFetch += (f, r, p) =>
                     {
-                        if (RandoInterop.Settings.RandomizedItems == ItemRandoMode.RestAndWarpUnlocks)
+                        if (RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.RestAndWarpUnlocks)
                         {
                             p.GetOrAddTag<IC.RequireUnlockToRestTag>();
                         }
@@ -47,15 +47,15 @@ namespace BenchRando.Rando
                 });
             }
 
-            if (rb.gs.SplitGroupSettings.RandomizeOnStart && RandoInterop.Settings.BenchGroup >= 0 && RandoInterop.Settings.BenchGroup <= 2)
+            if (rb.gs.SplitGroupSettings.RandomizeOnStart && RandoInterop.LS.Settings.BenchGroup >= 0 && RandoInterop.LS.Settings.BenchGroup <= 2)
             {
-                RandoInterop.Settings.BenchGroup = rb.rng.Next(3);
+                RandoInterop.LS.Settings.BenchGroup = rb.rng.Next(3);
             }
             // If the value is 0 or -1, then benches will be placed in the main item group by default, so we don't need a resolver.
-            if (RandoInterop.Settings.BenchGroup > 0)
+            if (RandoInterop.LS.Settings.BenchGroup > 0)
             {
                 ItemGroupBuilder benchGroup = null;
-                string label = RBConsts.SplitGroupPrefix + RandoInterop.Settings.BenchGroup;
+                string label = RBConsts.SplitGroupPrefix + RandoInterop.LS.Settings.BenchGroup;
                 foreach (ItemGroupBuilder igb in rb.EnumerateItemGroups())
                 {
                     if (igb.label == label)
@@ -90,11 +90,11 @@ namespace BenchRando.Rando
 
         private static void AddBenches(RequestBuilder rb)
         {
-            if (!RandoInterop.Settings.IsEnabled()) return;
+            if (!RandoInterop.IsEnabled()) return;
 
-            if (RandoInterop.RandomizedBenches is List<string> benchPool)
+            if (RandoInterop.LS.RandomizedBenches is List<string> benchPool)
             {
-                List<string> removedBenches = RandoInterop.NonrandomizedBenches ??= new();
+                List<string> removedBenches = RandoInterop.LS.NonrandomizedBenches ??= new();
 
                 if (rb.gs.LongLocationSettings.WhitePalaceRando == RandomizerMod.Settings.LongLocationSettings.WPSetting.ExcludeWhitePalace)
                 {
@@ -126,10 +126,10 @@ namespace BenchRando.Rando
                     rb.AddLocationByName(bench);
                 }
             }
-            if (RandoInterop.NonrandomizedBenches != null)
+            if (RandoInterop.LS.NonrandomizedBenches != null)
             {
                 // Maintaining vanilla is important for Can_Bench
-                foreach (string bench in RandoInterop.NonrandomizedBenches)
+                foreach (string bench in RandoInterop.LS.NonrandomizedBenches)
                 {
                     rb.AddToVanilla(bench, bench);
                 }
@@ -139,7 +139,7 @@ namespace BenchRando.Rando
 
         private static void DerangeBenches(RequestBuilder rb)
         {
-            if (!RandoInterop.Settings.IsEnabled()) return;
+            if (!RandoInterop.IsEnabled()) return;
             if (!rb.gs.CursedSettings.Deranged) return;
 
             foreach (ItemGroupBuilder igb in rb.EnumerateItemGroups())

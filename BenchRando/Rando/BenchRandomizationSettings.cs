@@ -24,5 +24,8 @@
 
         [MenuChanger.Attributes.MenuRange(-1, 99)]
         public int BenchGroup = -1;
+
+        public BenchRandomizationSettings Clone() => (BenchRandomizationSettings)MemberwiseClone();
+
     }
 }

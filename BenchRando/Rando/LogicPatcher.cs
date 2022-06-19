@@ -36,16 +36,16 @@ namespace BenchRando.Rando
 
         public static void ModifyLMB(GenerationSettings gs, LogicManagerBuilder lmb)
         {
-            if (!RandoInterop.Settings.IsEnabled()) return;
+            if (!RandoInterop.IsEnabled()) return;
             
-            RandoInterop.SetBenches(gs.Seed);
+            RandoInterop.Initialize(gs.Seed);
 
             // It is safest to make terms and items for all benches in use, whether they are indicated to be randomized or not
-            foreach (string s in RandoInterop.Benches)
+            foreach (string s in RandoInterop.LS.Benches)
             {
                 lmb.AddItem(new BoolItem(s, lmb.GetOrAddTerm(s)));
             }
-            foreach (string s in RandoInterop.Benches)
+            foreach (string s in RandoInterop.LS.Benches)
             {
                 BenchDef bench = BRData.BenchLookup[s];
                 foreach (RawLogicDef def in bench.LogicOverrides)
@@ -58,10 +58,10 @@ namespace BenchRando.Rando
             // We rebuild the Can_Bench waypoint to use the new benches
             // This the ability to rest at any bench
             LogicClauseBuilder canBench = new(ConstToken.False);
-            foreach (string s in RandoInterop.Benches)
+            foreach (string s in RandoInterop.LS.Benches)
             {
                 canBench.OrWith(lmb.LP.GetTermToken(s));
-                if (RandoInterop.Settings.RandomizedItems != ItemRandoMode.RestAndWarpUnlocks)
+                if (RandoInterop.LS.Settings.RandomizedItems != ItemRandoMode.RestAndWarpUnlocks)
                 {
                     canBench.OrWith(lmb.LP.GetTermToken("*" + s));
                 }
@@ -69,7 +69,7 @@ namespace BenchRando.Rando
             lmb.LogicLookup["Can_Bench"] = new(canBench);
 
             // If vanilla benches don't exist, we remove logic that assumes benches are available for nonterminal shade skips and charm usage
-            if (RandoInterop.Settings.RandomizeBenchSpots || RandoInterop.Settings.RandomizedItems == ItemRandoMode.RestAndWarpUnlocks)
+            if (RandoInterop.LS.Settings.RandomizeBenchSpots || RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.RestAndWarpUnlocks)
             {
                 foreach (string m in brokenShadeSkipMacros)
                 {
