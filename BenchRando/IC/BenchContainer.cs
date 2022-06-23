@@ -33,10 +33,12 @@ namespace BenchRando.IC
             {
                 AddGiveEffectAndPreventRest(fsm, info);
                 AddGiveEffectAfterRest(fsm, info);
+                AddGiveEffectAfterLoadIn(fsm, info);
             }
             else
             {
                 AddGiveEffectAfterRest(fsm, info);
+                AddGiveEffectAfterLoadIn(fsm, info);
             }
         }
 
@@ -306,6 +308,61 @@ namespace BenchRando.IC
                     inRange.GetFirstActionOfType<ShowPromptMarker>().labelName = "Rest";
                 }
             }));
+        }
+
+        public static void AddGiveEffectAfterLoadIn(PlayMakerFSM fsm, ContainerGiveInfo info)
+        {
+            FsmState startle = fsm.GetState("Startle");
+            FsmState updateMapSilently = fsm.GetState("Update Map Silently");
+
+            FsmState give = new(fsm.Fsm)
+            {
+                Name = "Give-Init Rest",
+                Transitions = new FsmTransition[]
+                {
+                    new FsmTransition(){ FsmEvent = FsmEvent.Finished, }
+                },
+                Actions = new FsmStateAction[]
+                {
+                    new Lambda(() =>
+                    {
+                        PlayerData.instance.SetBool(nameof(PlayerData.disablePause), true);
+                    }),
+                    new AsyncLambda(callback => ItemUtility.GiveSequentially(info.items, info.placement, new GiveInfo
+                    {
+                        FlingType = info.flingType,
+                        Container = Bench,
+                        MessageType = MessageType.Any,
+                        Transform = fsm.transform,
+                    }, callback)),
+                },
+            };
+            FsmState giveRecover = new(fsm.Fsm)
+            {
+                Name = "Give Recover-Init Rest",
+                Actions = new FsmStateAction[]
+                {
+                    new Lambda(() =>
+                    {
+                        PlayerData.instance.SetBool(nameof(PlayerData.disablePause), false);
+                        GameManager.instance.ResetSemiPersistentItems();
+                    }),
+                },
+                Transitions = new FsmTransition[]
+                {
+                    new FsmTransition()
+                    {
+                        FsmEvent = FsmEvent.Finished,
+                        ToFsmState = updateMapSilently,
+                        ToState = "Update Map Silently",
+                    }
+                }
+            };
+
+            fsm.AddState(give);
+            fsm.AddState(giveRecover);
+            startle.Transitions[0].SetToState(give);
+            give.Transitions[0].SetToState(giveRecover);
         }
     }
 }
