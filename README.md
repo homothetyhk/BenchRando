@@ -12,6 +12,8 @@ The *Black Egg Temple* and *Godhome Roof* benches are not randomized under any s
 
 Randomized benches will appear **purple** in the Benchwarp menu. This indicates that they cannot be unlocked by the normal method of resting. You can see the name of the bench or the name of its scene by using Benchwarp's setting toggle. 
 
+With this setting active, Salubra's Blessing will be given at the start of the randomizer, to ensure the player has soul access after warping to a new bench. This can be logically required in some circumstances.
+
 ## Randomize Bench Spots
 
 This setting randomizes the spots which have benches, replacing base game benches and adding new benches. BenchRando currently adds **85** new bench spots to the base **49** bench spots, for a total of **134** spots. The randomization guarantees that each of the Benchwarp area categories has at least **1** bench, and no more than **6** benches. It also guarantees that the total number of benches is between **45** and **55**.

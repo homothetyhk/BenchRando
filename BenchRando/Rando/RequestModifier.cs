@@ -16,6 +16,8 @@ namespace BenchRando.Rando
             // we will not bother to put benches in vanilla; they have no progression effect there.
             RequestBuilder.OnUpdate.Subscribe(0.6f, AddBenches);
 
+            RequestBuilder.OnUpdate.Subscribe(5.1f, AddStartBlessing);
+
             // The deranged constraint must be applied separately
             RequestBuilder.OnUpdate.Subscribe(102f, DerangeBenches);
         }
@@ -134,7 +136,22 @@ namespace BenchRando.Rando
                     rb.AddToVanilla(bench, bench);
                 }
             }
-            
+        }
+
+        private static void AddStartBlessing(RequestBuilder rb)
+        {
+            if (!RandoInterop.IsEnabled()) return;
+            if (RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.None) return;
+
+            // put Salubra's Blessing at start when benches are randomized
+            // to ensure warping to a new bench does not interfere with soul logic
+            rb.RemoveItemByName(ItemNames.Salubras_Blessing);
+            rb.RemoveFromVanilla(LocationNames.Salubra, ItemNames.Salubras_Blessing);
+            rb.StartItems.Set(ItemNames.Salubras_Blessing, 1);
+            rb.EditLocationRequest(LocationNames.Salubra, info =>
+            {
+                info.onPlacementFetch += (f, r, p) => ((ItemChanger.Placements.ShopPlacement)p).defaultShopItems &= ~DefaultShopItems.SalubraBlessing;
+            });
         }
 
         private static void DerangeBenches(RequestBuilder rb)

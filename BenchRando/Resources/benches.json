@@ -401,6 +401,18 @@
       {
         "name": "Fungus2_31[left1]",
         "logic": "ORIG | Bench-Mantis_Village + Defeated_Mantis_Lords"
+      },
+      {
+        "name": "Mark_of_Pride",
+        "logic": "ORIG | Bench-Mantis_Village + (LEFTCLAW | WINGS | RIGHTCLAW + (BACKGROUNDPOGOS | TERMINALSHADESKIPS))"
+      },
+      {
+        "name": "Geo_Chest-Mantis_Lords",
+        "logic": "ORIG | Bench-Mantis_Village + (ANYCLAW | WINGS)"
+      },
+      {
+        "name": "Hallownest_Seal-Mantis_Lords",
+        "logic": "ORIG | Bench-Mantis_Village + (ANYCLAW | WINGS)"
       }
     ],
     "ExtraDeployers": [],
@@ -558,7 +570,7 @@
       },
       {
         "name": "Waterways_02[bot1]",
-        "logic": "ORIG | Bench-Waterways"
+        "logic": "ORIG | Bench-Waterways + QUAKE"
       },
       {
         "name": "Waterways_02[bot2]",
