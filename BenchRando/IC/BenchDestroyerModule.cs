@@ -127,6 +127,17 @@ namespace BenchRando.IC
                     SceneName = SceneNames.Mines_18,
                 });
             }
+            else if (key == new BenchKey(SceneNames.Ruins1_31, "RestBench")
+                || key == new BenchKey(SceneNames.Fungus3_50, "RestBench")
+                || key == new BenchKey(SceneNames.Abyss_18, "RestBench"))
+            {
+                deployers.Add(new ObjectDestroyer
+                {
+                    MatchType = ObjectDestroyer.NameMatchType.Path,
+                    ObjectName = "Toll Machine Bench",
+                    SceneName = key.SceneName,
+                });
+            }
 
             return deployers;
         }

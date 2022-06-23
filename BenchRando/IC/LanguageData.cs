@@ -36,11 +36,13 @@ namespace BenchRando.IC
 
         private static string OverrideLanguageString(string key, string sheetTitle, string orig)
         {
-            // If orig has already been overridden, then it was probably an ItemChanger language override
-            if (orig != Language.Language.GetInternal(key, sheetTitle)) return orig;
-
-            LanguageKey obj = new(sheetTitle, key);
-            return _languageStrings.TryGetValue(obj, out string overrideValue) ? overrideValue : orig;
+            if (key == null || sheetTitle == null) return orig;
+            if (string.IsNullOrEmpty(orig) || orig.StartsWith("#!"))
+            {
+                LanguageKey obj = new(sheetTitle, key);
+                return _languageStrings.TryGetValue(obj, out string value) ? value : orig;
+            }
+            return orig; // If orig has already been overridden, then it was probably an ItemChanger language override
         }
     }
 }
