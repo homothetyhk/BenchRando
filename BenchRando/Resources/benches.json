@@ -1001,11 +1001,27 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Fungus3_40[right1] | Bench-Gardens_Stag",
+    "Logic": "Bench-Gardens_Stag | Can_Stag + Queen's_Gardens_Stag | Fungus3_40[top1] | Fungus3_40[right1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | TERMINALSHADESKIPS | AIRSTALL + ROOMSOUL)",
     "LogicOverrides": [
       {
         "name": "Fungus3_40[right1]",
         "logic": "ORIG | Bench-Gardens_Stag"
+      },
+      {
+        "name": "Fungus3_40[top1]",
+        "logic": "ORIG | Bench-Gardens_Stag + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH)"
+      },
+      {
+        "name": "Queen's_Gardens_Stag",
+        "logic": "ORIG | Bench-Gardens_Stag"
+      },
+      {
+        "name": "Boss_Essence-Marmu",
+        "logic": "ORIG | Bench-Gardens_Stag + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH) + DREAMNAIL + COMBAT[Marmu]"
+      },
+      {
+        "name": "Soul_Totem-Below_Marmu",
+        "logic": "ORIG | Bench-Gardens_Stag + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH)"
       }
     ],
     "ExtraDeployers": [],
@@ -1695,7 +1711,7 @@
     "IsRandomizable": true,
     "X": 48.3,
     "Y": 40.4,
-    "Logic": "Ruins1_30[right1]",
+    "Logic": "Ruins1_30[right1] | Bench-Inner_Sanctum",
     "LogicOverrides": [
       {
         "name": "Ruins1_30[right1]",
@@ -1988,7 +2004,7 @@
     "IsRandomizable": true,
     "X": 24.2,
     "Y": 80.4,
-    "Logic": "Deepnest_East_04[left1] + (LEFTCLAW | RIGHTCLAW + ENEMYPOGOS | WINGS)",
+    "Logic": "Bench-Bardoon's_Tail | Deepnest_East_04[left1] + (LEFTCLAW | RIGHTCLAW + WINGS | RIGHTCLAW + ENEMYPOGOS | WINGS + ENEMYPOGOS)",
     "LogicOverrides": [
       {
         "name": "Deepnest_East_04[left1]",
