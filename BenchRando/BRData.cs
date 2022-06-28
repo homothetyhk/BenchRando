@@ -10,7 +10,7 @@ namespace BenchRando
         /// </summary>
         public static ReadOnlyDictionary<string, BenchDef> BenchLookup { get; private set; }
         /// <summary>
-        /// The bench data embedded in BenchRando, which seeds ExtendedBenchLookup prior to ModifyBenchList.
+        /// The bench data embedded in BenchRando, which seeds BenchLookup prior to ModifyBenchList.
         /// This property can always be safely used.
         /// </summary>
         public static ReadOnlyDictionary<string, BenchDef> EmbeddedBenchData { get; }
@@ -21,7 +21,7 @@ namespace BenchRando
         public static event Action<Dictionary<string, BenchDef>> ModifyBenchList;
 
         /// <summary>
-        /// Returns the values of ExtendedBenchLookup which are not randomizable.
+        /// Returns the values of BenchLookup which are not randomizable.
         /// </summary>
         public static IEnumerable<BenchDef> GetNonRandomizableBenches()
         {
@@ -29,7 +29,7 @@ namespace BenchRando
         }
 
         /// <summary>
-        /// Returns true if key is not null and is in ExtendedBenchLookup.
+        /// Returns true if key is not null and is in BenchLookup.
         /// </summary>
         public static bool IsBenchName(string key)
         {
@@ -38,10 +38,10 @@ namespace BenchRando
 
         public static void Setup()
         {
-            Dictionary<string, BenchDef> extendedBenchLookup = new(EmbeddedBenchData);
+            Dictionary<string, BenchDef> benchLookup = new(EmbeddedBenchData);
             try
             {
-                ModifyBenchList?.Invoke(extendedBenchLookup);
+                ModifyBenchList?.Invoke(benchLookup);
             }
             catch (Exception e)
             {
@@ -49,7 +49,7 @@ namespace BenchRando
                 throw;
             }
 
-            BenchLookup = new(extendedBenchLookup);
+            BenchLookup = new(benchLookup);
 
             BenchRandoMod.Instance.Log($"Base count: " + BenchLookup.Values.Count(b => b.IsBaseBench));
             BenchRandoMod.Instance.Log($"Extended count: " + BenchLookup.Count);

@@ -28,6 +28,9 @@ namespace BenchRando.IC
             On.PlayerData.SetBenchRespawn_RespawnMarker_string_int += OnSetBenchRespawn1;
             On.PlayerData.SetBenchRespawn_string_string_bool += OnSetBenchRespawn2;
             On.PlayerData.SetBenchRespawn_string_string_int_bool += OnSetBenchRespawn3;
+            ItemChanger.Events.AddFsmEdit(SceneNames.Room_Colosseum_Bronze, new("Colosseum Manager", "Manager"), RemoveColoSetRespawn);
+            ItemChanger.Events.AddFsmEdit(SceneNames.Room_Colosseum_Silver, new("Colosseum Manager", "Manager"), RemoveColoSetRespawn);
+            ItemChanger.Events.AddFsmEdit(SceneNames.Room_Colosseum_Gold, new("Colosseum Manager", "Manager"), RemoveColoSetRespawn);
             loaded = true;
         }
 
@@ -47,6 +50,9 @@ namespace BenchRando.IC
             On.PlayerData.SetBenchRespawn_RespawnMarker_string_int -= OnSetBenchRespawn1;
             On.PlayerData.SetBenchRespawn_string_string_bool -= OnSetBenchRespawn2;
             On.PlayerData.SetBenchRespawn_string_string_int_bool -= OnSetBenchRespawn3;
+            ItemChanger.Events.RemoveFsmEdit(SceneNames.Room_Colosseum_Bronze, new("Colosseum Manager", "Manager"), RemoveColoSetRespawn);
+            ItemChanger.Events.RemoveFsmEdit(SceneNames.Room_Colosseum_Silver, new("Colosseum Manager", "Manager"), RemoveColoSetRespawn);
+            ItemChanger.Events.RemoveFsmEdit(SceneNames.Room_Colosseum_Gold, new("Colosseum Manager", "Manager"), RemoveColoSetRespawn);
             loaded = false;
         }
 
@@ -166,6 +172,12 @@ namespace BenchRando.IC
             BenchKey key = new(sceneName, spawnMarker);
             if (destroyedBenches.Contains(key)) return;
             orig(self, spawnMarker, sceneName, spawnType, facingRight);
+        }
+
+        private void RemoveColoSetRespawn(PlayMakerFSM fsm)
+        {
+            if (!destroyedBenches.Contains(new(SceneNames.Room_Colosseum_02, "RestBench"))) return;
+            fsm.GetState("Set Respawn")?.ClearActions();
         }
     }
 }

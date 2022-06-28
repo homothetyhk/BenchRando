@@ -18,8 +18,13 @@ namespace BenchRando
         public override void Initialize()
         {
             DefineICRefs();
-            RandoInterop.Setup();
+
+            if (ModHooks.GetMod("Randomizer 4") is Mod)
+            {
+                RandoInterop.Setup();
+            }
         }
+
         public static void DefineICRefs()
         {
             Container.DefineContainer<BenchContainer>();
