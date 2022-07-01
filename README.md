@@ -16,7 +16,7 @@ With this setting active, Salubra's Blessing will be given at the start of the r
 
 ## Randomize Bench Spots
 
-This setting randomizes the spots which have benches, replacing base game benches and adding new benches. BenchRando currently adds **85** new bench spots to the base **49** bench spots, for a total of **134** spots. The randomization guarantees that each of the Benchwarp area categories has at least **1** bench, and no more than **6** benches. It also guarantees that the total number of benches is between **45** and **55**.
+This setting randomizes the spots which have benches, replacing base game benches and adding new benches. BenchRando currently adds **102** new bench spots to the base **49** bench spots, for a total of **151** possible spots. The randomization guarantees that each of the Benchwarp area categories has at least **1** bench, and no more than **6** benches. It also guarantees that the total number of benches is between **45** and **55**.
 
 The randomization is uniform in area: each area is equally likely to be chosen to receive a bench, and then the bench is chosen uniformly from the list of benches for said area.
 

@@ -281,6 +281,11 @@
   },
   {
     "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-King's_Pass",
+    "Value": "King's Pass Bench"
+  },
+  {
+    "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Crossroads_Center",
     "Value": "Crossroads Center Bench"
   },
@@ -308,6 +313,16 @@
     "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Pilgrim's_Start",
     "Value": "Pilgrim's Start Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Temple_Exterior",
+    "Value": "Temple Exterior Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Temple_Seal",
+    "Value": "Temple Seal Bench"
   },
   {
     "Sheet": "UI",
@@ -411,6 +426,16 @@
   },
   {
     "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Ornate_Door",
+    "Value": "Ornate Door Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Padded_Door",
+    "Value": "Padded Door Bench"
+  },
+  {
+    "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Hive_Hideaway",
     "Value": "Hive Hideaway Bench"
   },
@@ -438,6 +463,21 @@
     "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Bardoon's_Tail",
     "Value": "Bardoon's Tail Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Hive_Exterior",
+    "Value": "Hive Exterior Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Isolated_Cell",
+    "Value": "Isolated Cell Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Hornet's_Outpost",
+    "Value": "Hornet's Outpost Bench"
   },
   {
     "Sheet": "UI",
@@ -491,6 +531,21 @@
   },
   {
     "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Zote's_Folly",
+    "Value": "Zote's Folly Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Galien's_Grave",
+    "Value": "Galien's Grave Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Ancient_Nest",
+    "Value": "Ancient Nest Bench"
+  },
+  {
+    "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Abyss_Workshop",
     "Value": "Abyss Workshop Bench"
   },
@@ -508,6 +563,11 @@
     "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Palace_Grounds",
     "Value": "Palace Grounds Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-King's_Door",
+    "Value": "King's Door Bench"
   },
   {
     "Sheet": "UI",
@@ -571,6 +631,21 @@
   },
   {
     "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Crystal_Cavern",
+    "Value": "Crystal Cavern Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Mining_Golem",
+    "Value": "Mining Golem Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Mimic's_Secret",
+    "Value": "Mimic's Secret Bench"
+  },
+  {
+    "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Unn's_Chamber",
     "Value": "Unn's Chamber Bench"
   },
@@ -593,6 +668,11 @@
     "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Greenpath_Entrance",
     "Value": "Greenpath Entrance Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Sanctuary_Vault",
+    "Value": "Sanctuary Vault Bench"
   },
   {
     "Sheet": "UI",
@@ -628,6 +708,11 @@
     "Sheet": "UI",
     "Key": "BENCHNAME.Bench-Fort_Flukefey",
     "Value": "Fort Flukefey Bench"
+  },
+  {
+    "Sheet": "UI",
+    "Key": "BENCHNAME.Bench-Remote_Acid_Sluice",
+    "Value": "Remote Acid Sluice Bench"
   },
   {
     "Sheet": "UI",
