@@ -10,19 +10,19 @@ namespace BenchRando.IC
         public override string Name => Bench;
         public const string Bench = "Bench";
 
-        public override bool SupportsInstantiate => true;
+        public override bool SupportsInstantiate => ObjectCache.DidPreload;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
+        public override GameObject GetNewContainer(ContainerInfo info)
         {
             if (!ObjectCache.DidPreload) throw new InvalidOperationException("Cannot create bench container; Benchwarp did not preload.");
             GameObject bench = ObjectCache.GetNewBench();
-            if (placement.GetPlacementAndLocationTags().OfType<BenchStyleTag>().FirstOrDefault() is BenchStyleTag bst)
+            bench.AddComponent<ContainerInfoComponent>().info = info;
+            if (info.giveInfo.placement.GetPlacementAndLocationTags().OfType<BenchStyleTag>().FirstOrDefault() is BenchStyleTag bst)
             {
                 BenchMaker.ApplyStyleSprites(bench, bst.FarStyle, bst.NearStyle);
             }
             return bench;
         }
-
 
         public override void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)
         {

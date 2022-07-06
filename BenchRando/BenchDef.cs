@@ -18,6 +18,7 @@ namespace BenchRando
         public bool IsRandomizable { get; init; }
         public float X { get; init; }
         public float Y { get; init; }
+        public FlingType FlingType { get; init; }
         public string Logic { get; init; }
         public RawLogicDef[] LogicOverrides { get; init; }
         public IDeployer[] ExtraDeployers { get; init; } = Array.Empty<IDeployer>();
@@ -150,6 +151,7 @@ namespace BenchRando
                 sceneName = SceneName,
                 nonreplaceable = true,
                 objectName = GetRespawnMarkerName(),
+                flingType = FlingType,
                 name = Name,
                 tags = new()
                 {

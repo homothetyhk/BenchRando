@@ -155,6 +155,7 @@ namespace BenchRando.IC
 
         private void OnSetBenchRespawn1(On.PlayerData.orig_SetBenchRespawn_RespawnMarker_string_int orig, PlayerData self, RespawnMarker spawnMarker, string sceneName, int spawnType)
         {
+            if (spawnMarker == null) return;
             BenchKey key = new(sceneName, spawnMarker.name);
             if (destroyedBenches.Contains(key)) return;
             orig(self, spawnMarker, sceneName, spawnType);

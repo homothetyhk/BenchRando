@@ -2465,7 +2465,14 @@
       }
     ],
     "ExtraDeployers": [],
-    "ExtraUnlockActions": []
+    "ExtraUnlockActions": [
+      {
+        "$type": "ItemChanger.SDBool, ItemChanger",
+        "id": "Secret Mask",
+        "sceneName": "Deepnest_33",
+        "semiPersistent": false
+      }
+    ]
   },
   "Bench-Galien's_Grave": {
     "Name": "Bench-Galien's_Grave",
@@ -3335,6 +3342,10 @@
       {
         "name": "Waterways_06[top1]",
         "logic": "ORIG | Bench-Acid_Sluice_West + (ENEMYPOGOS + DANGEROUSSKIPS | (LEFTCLAW + (LEFTDASH | ENEMYPOGOS | RIGHTCLAW + PRECISEMOVEMENT)) | WINGS)"
+      },
+      {
+        "name": "Waterways_06[right1]",
+        "logic": "ORIG | Bench-Acid_Sluice_West + (ACID | RIGHTSUPERDASH)"
       }
     ],
     "ExtraDeployers": [],
@@ -3472,6 +3483,7 @@
     "IsRandomizable": true,
     "X": 73.5,
     "Y": 14.3,
+    "FlingType": "StraightUp",
     "Logic": "White_Palace_04[top1] + (RIGHTDASH | WINGS) | White_Palace_04[right2] + (RIGHTCLAW + LEFTSUPERDASH + (WINGS | RIGHTDASH) | (FULLCLAW | ANYCLAW + WINGS | LEFTCLAW + PRECISEMOVEMENT) + (WINGS | LEFTDASH)) | Bench-Sawblade_Choir",
     "LogicOverrides": [
       {
