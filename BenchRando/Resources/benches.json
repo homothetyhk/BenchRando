@@ -2113,14 +2113,14 @@
     "IsRandomizable": true,
     "X": 24.2,
     "Y": 80.4,
-    "Logic": "Bench-Bardoon's_Tail | Deepnest_East_04[left1] + (LEFTCLAW | RIGHTCLAW + WINGS | RIGHTCLAW + ENEMYPOGOS | WINGS + ENEMYPOGOS)",
+    "Logic": "Bench-Bardoon's_Tail | Deepnest_East_04[left2] + (LEFTCLAW | RIGHTCLAW + WINGS | RIGHTCLAW + ENEMYPOGOS | WINGS + ENEMYPOGOS)",
     "LogicOverrides": [
       {
-        "name": "Deepnest_East_04[left1]",
+        "name": "Deepnest_East_04[left2]",
         "logic": "ORIG | Bench-Bardoon's_Tail + (LEFTCLAW | WINGS | ENEMYPOGOS)"
       },
       {
-        "name": "Deepnest_East_04[right2]",
+        "name": "Deepnest_East_04[right1]",
         "logic": "ORIG | Bench-Bardoon's_Tail"
       }
     ],
