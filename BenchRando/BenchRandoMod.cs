@@ -71,7 +71,7 @@ namespace BenchRando
             Version = $"{v.Major}.{v.Minor}.{v.Build}";
 
             // preload is required, for safely loading IC saves
-            Benchwarp.Benchwarp.GS.NoPreload = false;
+            Benchwarp.ObjectCache.ForcePreload();
         }
     }
 }
