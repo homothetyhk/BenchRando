@@ -2620,7 +2620,7 @@
     "IsRandomizable": true,
     "X": 53.8,
     "Y": 230.4,
-    "Logic": "Bench-King's_Door | Abyss_06_Core",
+    "Logic": "Bench-King's_Door | Abyss_06_Core[top1]",
     "LogicOverrides": [
       {
         "name": "Abyss_06_Core[top1]",
