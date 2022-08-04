@@ -3016,6 +3016,18 @@
       {
         "name": "Mines_16[top1]",
         "logic": "ORIG | Bench-Mimic's_Secret + (ANYCLAW | WINGS + ENEMYPOGOS)"
+      },
+      {
+        "name": "Grub-Crystal_Peak_Mimic",
+        "logic": "ORIG | Bench-Mimic's_Secret + (LEFTCLAW | WINGS | RIGHTCLAW + (LEFTDASH | AIRSTALL))"
+      },
+      {
+        "name": "Mimic-Crystal_Peak",
+        "logic": "ORIG | Bench-Mimic's_Secret"
+      },
+      {
+        "name": "Geo_Rock-Crystal_Peak_Mimic_Grub",
+        "logic": "ORIG | Bench-Mimic's_Secret + (ANYCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS)"
       }
     ],
     "ExtraDeployers": [],
