@@ -4,8 +4,8 @@
     <RootNamespace>BenchRando</RootNamespace>
     <AssemblyName>BenchRando</AssemblyName>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1</FileVersion>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <FileVersion>1.0.2</FileVersion>
     <Deterministic>true</Deterministic>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LangVersion>latest</LangVersion>
