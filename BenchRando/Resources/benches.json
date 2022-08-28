@@ -3022,7 +3022,7 @@
         "logic": "ORIG | Bench-Mimic's_Secret + (LEFTCLAW | WINGS | RIGHTCLAW + (LEFTDASH | AIRSTALL))"
       },
       {
-        "name": "Mimic-Crystal_Peak",
+        "name": "Mimic_Grub-Crystal_Peak",
         "logic": "ORIG | Bench-Mimic's_Secret"
       },
       {
