@@ -34,7 +34,6 @@ namespace BenchRando.Rando
         /// </summary>
         public static bool IsEnabled()
         {
-            if (LS is not null) return LS.Settings.IsEnabled();
             return BenchRandoMod.GS.BenchRandomizationSettings.IsEnabled();
         }
 
@@ -44,7 +43,6 @@ namespace BenchRando.Rando
         /// </summary>
         public static void Initialize(int seed)
         {
-            Clear();
             BRData.Reset();
             BRData.Setup();
             LS = new(seed);

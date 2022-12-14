@@ -36,8 +36,8 @@ namespace BenchRando.Rando
 
         public static void ModifyLMB(GenerationSettings gs, LogicManagerBuilder lmb)
         {
+            RandoInterop.Clear();
             if (!RandoInterop.IsEnabled()) return;
-            
             RandoInterop.Initialize(gs.Seed);
 
             // It is safest to make terms and items for all benches in use, whether they are indicated to be randomized or not

@@ -703,11 +703,11 @@
       },
       {
         "name": "Geo_Rock-Beast's_Den_Above_Trilobite",
-        "logic": "ORIG | Bench-Beast's_Den + ANYCLAW"
+        "logic": "ORIG | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
       },
       {
         "name": "Geo_Rock-Beast's_Den_Above_Trilobite_Dupe",
-        "logic": "ORIG | Bench-Beast's_Den + ANYCLAW"
+        "logic": "ORIG | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
       }
     ],
     "ExtraDeployers": [],
@@ -2122,6 +2122,10 @@
       {
         "name": "Deepnest_East_04[right1]",
         "logic": "ORIG | Bench-Bardoon's_Tail"
+      },
+      {
+        "name": "Deepnest_East_04",
+        "logic": "ORIG | Bench-Bardoon's_Tail"
       }
     ],
     "ExtraDeployers": [],
@@ -2661,7 +2665,7 @@
     "IsRandomizable": true,
     "X": 35.3,
     "Y": 6.4,
-    "Logic": "Fungus3_49[right1] + (LEFTDASH | LEFTSUPERDASH + (RIGHTCLAW | WINGS))",
+    "Logic": "Fungus3_49[right1] + (LEFTDASH | LEFTSUPERDASH + (RIGHTCLAW | WINGS) | WINGS + DIFFICULTSKIPS)",
     "LogicOverrides": [
       {
         "name": "Fungus3_49[right1]",
