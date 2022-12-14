@@ -57,9 +57,10 @@ namespace BenchRando
                 Dictionary<string, int> countsByArea = benchesByArea.Keys.ToDictionary(k => k, k => 0);
                 List<string> areas = countsByArea.Keys.ToList();
                 int total = 0;
-                const int MINBENCHES = 45;
-                const int MAXBENCHES = 55;
-                const int MAXBENCHESPERAREA = 6;
+                int MINBENCHES = Settings.MinimumBenchCount;
+                int MAXBENCHES = Settings.MaximumBenchCount;
+                int MAXBENCHESPERAREA = Settings.MaximumBenchesPerArea;
+                int MINBENCHESPERAREA = Settings.MinimumBenchesPerArea;
 
                 foreach (BenchDef b in BRData.BenchLookup.Values.Where(b => !b.IsRandomizable))
                 {
@@ -71,12 +72,11 @@ namespace BenchRando
                 }
                 foreach (string k in benchesByArea.Keys)
                 {
-                    if (countsByArea[k] == 0)
+                    while (countsByArea[k] < MINBENCHESPERAREA)
                     {
                         var l = benchesByArea[k];
-                        if (l.Count == 0) continue;
+                        if (l.Count == 0) break;
                         string b = rng.PopNext(l);
-
                         countsByArea[k]++;
                         total++;
                         newBenchReceiver.Add(b);
@@ -87,9 +87,7 @@ namespace BenchRando
                     }
                 }
 
-
-
-                int benchTotal = rng.Next(MINBENCHES, MAXBENCHES);
+                int benchTotal = rng.Next(MINBENCHES, MAXBENCHES + 1);
 
                 while (total < benchTotal)
                 {
