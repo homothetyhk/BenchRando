@@ -5,6 +5,7 @@
         None,
         WarpUnlocks,
         RestAndWarpUnlocks,
+        RestUnlocks,
     }
 
     public enum StyleRandoMode

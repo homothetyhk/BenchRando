@@ -30,6 +30,7 @@ namespace BenchRando
                 {
                     case ItemRandoMode.WarpUnlocks:
                     case ItemRandoMode.RestAndWarpUnlocks:
+                    case ItemRandoMode.RestUnlocks:
                         RandomizedBenches = new(BRData.BenchLookup.Values.Where(b => b.IsBaseBench && b.IsRandomizable).Select(b => b.Name));
                         NonrandomizedBenches = new(BRData.BenchLookup.Values.Where(b => b.IsBaseBench && !b.IsRandomizable).Select(b => b.Name));
                         break;

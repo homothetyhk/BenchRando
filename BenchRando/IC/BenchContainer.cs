@@ -29,7 +29,7 @@ namespace BenchRando.IC
             if (fsm.FsmName != "Bench Control") return;
 
             if (info.placement.GetPlacementAndLocationTags().OfType<RequireUnlockToRestTag>().Any()
-                && !Benchwarp.Benchwarp.LS.visitedBenchScenes.Contains(new(fsm.gameObject.scene.name, fsm.gameObject.name)))
+                && BenchwarpMod.LS.lockedBenches.Contains(new(fsm.gameObject.scene.name, fsm.gameObject.name)))
             {
                 AddGiveEffectAndPreventRest(fsm, info);
                 AddGiveEffectAfterRest(fsm, info);
@@ -56,7 +56,7 @@ namespace BenchRando.IC
                 Name = "Check Bench State",
                 Actions = new FsmStateAction[]
                 {
-                    new DelegateBoolTest(() => Benchwarp.Benchwarp.LS.visitedBenchScenes.Contains(new(fsm.gameObject.scene.name, fsm.gameObject.name)), "BENCH ACTIVE", null),
+                    new DelegateBoolTest(() => !BenchwarpMod.LS.lockedBenches.Contains(new(fsm.gameObject.scene.name, fsm.gameObject.name)), "BENCH ACTIVE", null),
                     new DelegateBoolTest(() => info.items.All(i => i.IsObtained()), "WAIT", "GIVE")
                 },
                 Transitions = new FsmTransition[] { },

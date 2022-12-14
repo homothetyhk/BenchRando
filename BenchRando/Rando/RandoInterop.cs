@@ -54,6 +54,11 @@ namespace BenchRando.Rando
         public static void Finish(RandoController rc)
         {
             if (!IsEnabled()) return;
+
+            ItemChangerMod.Modules.GetOrAdd<IC.BRLocalSettingsModule>().LS = LS;
+            ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.PlayerDataEditModule>()
+                .AddPDEdit(nameof(PlayerData.charmBenchMsg), true);
+
             if (LS.Settings.RandomizeBenchSpots)
             {
                 IC.BenchDestroyerModule bdm = ItemChangerMod.Modules.GetOrAdd<IC.BenchDestroyerModule>();
@@ -75,9 +80,6 @@ namespace BenchRando.Rando
                     }
                     cbm.AddBench(def.Name, bdg);
                 }
-                ItemChangerMod.Modules.GetOrAdd<IC.BRLocalSettingsModule>().LS = LS;
-                ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.PlayerDataEditModule>()
-                    .AddPDEdit(nameof(PlayerData.charmBenchMsg), true);
             }
         }
 

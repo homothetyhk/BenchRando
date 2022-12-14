@@ -1,28 +1,52 @@
-﻿using Benchwarp;
+﻿using BenchRando.Rando;
+using Benchwarp;
 
 namespace BenchRando.IC
 {
     public class BenchItem : AbstractItem
     {
         public BenchKey BenchKey;
+        private bool UnlocksWarp
+        {
+            get
+            {
+                if (ItemChangerMod.Modules.Get<BRLocalSettingsModule>() is BRLocalSettingsModule lsm && lsm.LS is LocalSettings ls)
+                {
+                    return ls.Settings.RandomizedItems switch
+                    {
+                        ItemRandoMode.RestUnlocks => false,
+                        _ => true,
+                    };
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
 
         protected override void OnLoad()
         {
             if (!WasEverObtained())
             {
-                Benchwarp.Benchwarp.LS.lockedBenches.Add(BenchKey);
+                BenchwarpMod.LS.lockedBenches.Add(BenchKey);
             }
         }
 
         public override void GiveImmediate(GiveInfo info)
         {
-            Benchwarp.Benchwarp.LS.lockedBenches.Remove(BenchKey);
-            Benchwarp.Benchwarp.LS.visitedBenchScenes.Add(BenchKey);
+            BenchwarpMod.LS.lockedBenches.Remove(BenchKey);
+            if (UnlocksWarp)
+            {
+                BenchwarpMod.LS.visitedBenchScenes.Add(BenchKey);
+            }
         }
 
         public override bool Redundant()
         {
-            return Benchwarp.Benchwarp.LS.visitedBenchScenes.Contains(BenchKey);
+            if (BenchwarpMod.LS.lockedBenches.Contains(BenchKey)) return false;
+            if (UnlocksWarp && !BenchwarpMod.LS.visitedBenchScenes.Contains(BenchKey)) return false;
+            return true;
         }
     }
 }

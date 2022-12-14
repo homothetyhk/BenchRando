@@ -43,8 +43,8 @@ namespace BenchRando.IC
         {
             BenchKey key = new(PlayerData.instance.GetString(nameof(PlayerData.respawnScene)), PlayerData.instance.GetString(nameof(PlayerData.respawnMarkerName)));
 
-            if (Benchwarp.Benchwarp.GS.UnlockAllBenches
-                && !Benchwarp.Benchwarp.LS.visitedBenchScenes.Contains(key)
+            if (BenchwarpMod.GS.UnlockAllBenches
+                && !BenchwarpMod.LS.visitedBenchScenes.Contains(key)
                 && injectedBenches.Values.FirstOrDefault(b => b.BenchwarpInfo.ToBenchKey() == key) is BenchDeployerGroup bdg)
             {
                 if (bdg.UnlockAllActions != null)

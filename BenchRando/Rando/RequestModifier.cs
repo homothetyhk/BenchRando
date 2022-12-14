@@ -1,4 +1,5 @@
 ﻿using BenchRando.IC;
+using RandomizerCore.Logic;
 using RandomizerCore.Randomization;
 using RandomizerMod.RC;
 
@@ -34,16 +35,19 @@ namespace BenchRando.Rando
 
                 rb.EditItemRequest(def.Name, info =>
                 {
-                    info.getItemDef = () => def.GetRMItemDef();
+                    info.getItemDef = def.GetRMItemDef;
                 });
                 rb.EditLocationRequest(def.Name, info =>
                 {
-                    info.getLocationDef = () => def.GetRMLocationDef();
+                    info.getLocationDef = def.GetRMLocationDef;
                     info.onPlacementFetch += (f, r, p) =>
                     {
-                        if (RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.RestAndWarpUnlocks)
+                        switch (RandoInterop.LS.Settings.RandomizedItems)
                         {
-                            p.GetOrAddTag<IC.RequireUnlockToRestTag>();
+                            case ItemRandoMode.RestAndWarpUnlocks:
+                            case ItemRandoMode.RestUnlocks:
+                                p.GetOrAddTag<RequireUnlockToRestTag>();
+                                break;
                         }
                     };
                 });

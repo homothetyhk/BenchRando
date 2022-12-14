@@ -24,6 +24,7 @@
     <Using Include="UnityEngine.Object" Alias="UObject" />
     <Using Include="UnityEngine.SceneManagement.Scene" Alias="Scene" />
     <Using Include="HutongGames.PlayMaker" />
+    <Using Include="Benchwarp.Benchwarp" Alias="BenchwarpMod" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\**\*.json" />
