@@ -125,6 +125,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
+    "DreamGateRestricted": true,
     "Logic": "Crossroads_ShamanTemple[left1]",
     "LogicOverrides": [
       {
@@ -147,7 +148,12 @@
     "X": "NaN",
     "Y": "NaN",
     "Logic": "Room_temple[left1] + Opened_Black_Egg_Temple",
-    "LogicOverrides": [],
+    "LogicOverrides": [
+      {
+        "name": "Room_temple[left1]",
+        "logic": "ORIG | Bench-Black_Egg_Temple"
+      }
+    ],
     "ExtraDeployers": [],
     "ExtraUnlockActions": []
   },
@@ -300,7 +306,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Fungus3_archive[bot1] + (ANYCLAW | WINGS) | Bench-Archives",
+    "Logic": "Fungus3_archive[bot1] + (ANYCLAW | WINGS)",
     "LogicOverrides": [
       {
         "name": "Fungus3_archive[bot1]",
@@ -367,7 +373,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT) | Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | AIRSTALL + ROOMSOUL | TERMINALSHADESKIPS) | Bench-Bretta",
+    "Logic": "Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT) | Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | SPELLAIRSTALL + $CASTSPELL[before:AREASOUL,after:ROOMSOUL] | PRECISEMOVEMENT + $SHADESKIP)",
     "LogicOverrides": [
       {
         "name": "Fungus2_13",
@@ -396,7 +402,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Fungus2_31[left1] + Defeated_Mantis_Lords | Bench-Mantis_Village",
+    "Logic": "Fungus2_31[left1] + Defeated_Mantis_Lords",
     "LogicOverrides": [
       {
         "name": "Fungus2_31[left1]",
@@ -404,7 +410,7 @@
       },
       {
         "name": "Mark_of_Pride",
-        "logic": "ORIG | Bench-Mantis_Village + (LEFTCLAW | WINGS | RIGHTCLAW + (BACKGROUNDPOGOS | TERMINALSHADESKIPS))"
+        "logic": "ORIG | Bench-Mantis_Village + (LEFTCLAW | WINGS | RIGHTCLAW + (BACKGROUNDPOGOS | $SHADESKIP))"
       },
       {
         "name": "Geo_Chest-Mantis_Lords",
@@ -450,7 +456,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Ruins1_31[left1] + Can_Replenish_Geo | Bench-City_Toll",
+    "Logic": "Ruins1_31[left1] + Can_Replenish_Geo",
     "LogicOverrides": [
       {
         "name": "Ruins1_31[left1]",
@@ -562,7 +568,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Waterways_02[top3] + QUAKE | Waterways_02 + (LEFTCLAW | WINGS + RIGHTCLAW | ENEMYPOGOS + DANGEROUSSKIPS + (WINGS | RIGHTCLAW)) | Bench-Waterways",
+    "Logic": "Waterways_02[top3] + QUAKE | Waterways_02 + (LEFTCLAW | WINGS + RIGHTCLAW | ENEMYPOGOS + DANGEROUSSKIPS + (WINGS | RIGHTCLAW))",
     "LogicOverrides": [
       {
         "name": "Waterways_02",
@@ -595,7 +601,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "GG_Atrium + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | WINGS) | LEFTCLAW + WINGS) | Bench-Godhome_Atrium",
+    "Logic": "GG_Atrium + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | WINGS) | LEFTCLAW + WINGS)",
     "LogicOverrides": [
       {
         "name": "GG_Atrium",
@@ -632,7 +638,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "GG_Workshop + ANYCLAW | Bench-Hall_of_Gods",
+    "Logic": "GG_Workshop + ANYCLAW",
     "LogicOverrides": [
       {
         "name": "GG_Workshop",
@@ -695,7 +701,8 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | WINGS + ANYCLAW | WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS) | Bench-Beast's_Den",
+    "DreamGateRestricted": true,
+    "Logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | WINGS + ANYCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS])",
     "LogicOverrides": [
       {
         "name": "Deepnest_Spider_Town[left1]",
@@ -724,7 +731,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Abyss_18[right1] + Can_Replenish_Geo | Bench-Basin_Toll",
+    "Logic": "Abyss_18[right1] + Can_Replenish_Geo",
     "LogicOverrides": [
       {
         "name": "Abyss_18[right1]",
@@ -815,7 +822,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Room_Colosseum_02[top1] | Room_Colosseum_02[top2] | Bench-Colosseum",
+    "Logic": "Room_Colosseum_02[top1] | Room_Colosseum_02[top2]",
     "LogicOverrides": [
       {
         "name": "Room_Colosseum_02[top1]",
@@ -952,7 +959,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Fungus1_24[left1] + (ANYCLAW | WINGS) | Bench-Gardens_Cornifer",
+    "Logic": "Fungus1_24[left1] + (ANYCLAW | WINGS)",
     "LogicOverrides": [
       {
         "name": "Fungus1_24[left1]",
@@ -973,7 +980,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Fungus3_50[right1] + Can_Replenish_Geo | Bench-Gardens_Toll",
+    "Logic": "Fungus3_50[right1] + Can_Replenish_Geo",
     "LogicOverrides": [
       {
         "name": "Fungus3_50[right1]",
@@ -1001,7 +1008,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Bench-Gardens_Stag | Can_Stag + Queen's_Gardens_Stag | Fungus3_40[top1] | Fungus3_40[right1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | TERMINALSHADESKIPS | AIRSTALL + ROOMSOUL)",
+    "Logic": "Fungus3_40[right1] | Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | $SHADESKIP | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL,after:ROOMSOUL]) | Can_Stag + Queen's_Gardens_Stag",
     "LogicOverrides": [
       {
         "name": "Fungus3_40[right1]",
@@ -1017,7 +1024,7 @@
       },
       {
         "name": "Boss_Essence-Marmu",
-        "logic": "ORIG | Bench-Gardens_Stag + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH) + DREAMNAIL + COMBAT[Marmu]"
+        "logic": "ORIG | Bench-Gardens_Stag + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH) + DREAMNAIL + Defeated_Marmu"
       },
       {
         "name": "Soul_Totem-Below_Marmu",
@@ -1038,7 +1045,8 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "White_Palace_01 | Bench-Palace_Entrance",
+    "DreamGateRestricted": true,
+    "Logic": "White_Palace_01",
     "LogicOverrides": [
       {
         "name": "White_Palace_01",
@@ -1064,7 +1072,8 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "White_Palace_03_hub | Bench-Palace_Atrium",
+    "DreamGateRestricted": true,
+    "Logic": "White_Palace_03_hub",
     "LogicOverrides": [
       {
         "name": "White_Palace_03_hub",
@@ -1085,7 +1094,8 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "White_Palace_06[top1] | Bench-Palace_Balcony",
+    "DreamGateRestricted": true,
+    "Logic": "White_Palace_06[top1]",
     "LogicOverrides": [
       {
         "name": "White_Palace_06[top1]",
@@ -1110,6 +1120,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
+    "DreamGateRestricted": true,
     "Logic": "Upper_Tram",
     "LogicOverrides": [
       {
@@ -1140,6 +1151,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
+    "DreamGateRestricted": true,
     "Logic": "Lower_Tram",
     "LogicOverrides": [
       {
@@ -1300,7 +1312,7 @@
     "IsRandomizable": true,
     "X": 6.9,
     "Y": 74.4,
-    "Logic": "Bench-King's_Pass | Tutorial_01[top2]",
+    "Logic": "Tutorial_01[top2]",
     "LogicOverrides": [
       {
         "name": "Tutorial_01[top2]",
@@ -1486,7 +1498,7 @@
     "IsRandomizable": true,
     "X": 18.6,
     "Y": 3.4,
-    "Logic": "Bench-Temple_Seal | Room_temple[left1]",
+    "Logic": "Room_temple[left1]",
     "LogicOverrides": [
       {
         "name": "Room_temple[left1]",
@@ -1774,7 +1786,8 @@
     "IsRandomizable": true,
     "X": 52.4,
     "Y": 42.4,
-    "Logic": "Bench-Inner_Sanctum | Ruins1_24[right1]",
+    "DreamGateRestricted": true,
+    "Logic": "Ruins1_24[right1]",
     "LogicOverrides": [
       {
         "name": "Ruins1_24[right1]",
@@ -1795,7 +1808,7 @@
     "IsRandomizable": true,
     "X": 5.5,
     "Y": 3.4,
-    "Logic": "Bench-Outer_Sanctum | Ruins1_25[left3]",
+    "Logic": "Ruins1_25[left3]",
     "LogicOverrides": [
       {
         "name": "Ruins1_25[left3]",
@@ -1949,7 +1962,7 @@
     "IsRandomizable": true,
     "X": 48.8,
     "Y": 39.4,
-    "Logic": "Bench-Ornate_Door | Ruins1_31[right1] | Ruins1_31[left2] | Ruins1_31[left3]",
+    "Logic": "Ruins1_31[right1] | Ruins1_31[left2] | Ruins1_31[left3]",
     "LogicOverrides": [
       {
         "name": "Ruins1_31[right1]",
@@ -1974,7 +1987,7 @@
     "IsRandomizable": true,
     "X": 50.4,
     "Y": 58.4,
-    "Logic": "Bench-Padded_Door | Ruins2_11_b[right1] | Ruins2_11_b[left1]",
+    "Logic": "Ruins2_11_b[right1] | Ruins2_11_b[left1]",
     "LogicOverrides": [
       {
         "name": "Ruins2_11_b[right1]",
@@ -2092,7 +2105,7 @@
     "IsRandomizable": true,
     "X": 19.0,
     "Y": 185.4,
-    "Logic": "Deepnest_East_04[right2] + (WINGS | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH | RIGHTCLAW | ENEMYPOGOS)) | Bench-Bardoon",
+    "Logic": "Deepnest_East_04[right2] + (WINGS | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH | RIGHTCLAW | ENEMYPOGOS))",
     "LogicOverrides": [
       {
         "name": "Deepnest_East_04[right2]",
@@ -2113,7 +2126,7 @@
     "IsRandomizable": true,
     "X": 24.2,
     "Y": 80.4,
-    "Logic": "Bench-Bardoon's_Tail | Deepnest_East_04[left2] + (LEFTCLAW | RIGHTCLAW + WINGS | RIGHTCLAW + ENEMYPOGOS | WINGS + ENEMYPOGOS)",
+    "Logic": "Deepnest_East_04[left2] + (LEFTCLAW | RIGHTCLAW + WINGS | RIGHTCLAW + ENEMYPOGOS | WINGS + ENEMYPOGOS)",
     "LogicOverrides": [
       {
         "name": "Deepnest_East_04[left2]",
@@ -2149,7 +2162,7 @@
     "IsRandomizable": true,
     "X": 15.6,
     "Y": 47.4,
-    "Logic": "Bench-Hive_Exterior | Deepnest_East_01[bot1] + (RIGHTCLAW | WINGS) | Deepnest_East_01[top1] | Deepnest_East_01[right1]",
+    "Logic": "Deepnest_East_01[bot1] + (RIGHTCLAW | WINGS) | Deepnest_East_01[top1] | Deepnest_East_01[right1]",
     "LogicOverrides": [
       {
         "name": "Deepnest_East_01[top1]",
@@ -2174,7 +2187,7 @@
     "IsRandomizable": true,
     "X": 41.0,
     "Y": 145.4,
-    "Logic": "Bench-Isolated_Cell | Hive_03[top1]",
+    "Logic": "Hive_03[top1]",
     "LogicOverrides": [
       {
         "name": "Hive_03[top1]",
@@ -2195,7 +2208,7 @@
     "IsRandomizable": true,
     "X": 15.1,
     "Y": 82.4,
-    "Logic": "Bench-Hornet's_Outpost | Deepnest_East_Hornet[left1]",
+    "Logic": "Deepnest_East_Hornet[left1]",
     "LogicOverrides": [
       {
         "name": "Deepnest_East_Hornet[left1]",
@@ -2216,7 +2229,7 @@
     "IsRandomizable": true,
     "X": 22.0,
     "Y": 24.4,
-    "Logic": "Crossroads_50[left1] | Crossroads_50[right1] + (SWIM | LEFTSUPERDASH) | Bench-West_Lake_Shore",
+    "Logic": "Crossroads_50[left1] | Crossroads_50[right1] + (SWIM | LEFTSUPERDASH)",
     "LogicOverrides": [
       {
         "name": "Crossroads_50[left1]",
@@ -2336,6 +2349,7 @@
     "IsRandomizable": true,
     "X": 83.1,
     "Y": 13.4,
+    "DreamGateRestricted": true,
     "Logic": "Deepnest_45_v02[left1]",
     "LogicOverrides": [
       {
@@ -2378,7 +2392,7 @@
     "IsRandomizable": true,
     "X": 103.3,
     "Y": 4.4,
-    "Logic": "Fungus2_25[right1] | Fungus2_25[top1] | Fungus2_25[top2] | Bench-Deepnest_Gate",
+    "Logic": "Fungus2_25[right1] | Fungus2_25[top1] | Fungus2_25[top2]",
     "LogicOverrides": [
       {
         "name": "Fungus2_25[right1]",
@@ -2457,7 +2471,7 @@
     "IsRandomizable": true,
     "X": 54.9,
     "Y": 12.4,
-    "Logic": "Bench-Zote's_Folly | Deepnest_33[top1]",
+    "Logic": "Deepnest_33[top1]",
     "LogicOverrides": [
       {
         "name": "Deepnest_33[bot1]",
@@ -2489,7 +2503,7 @@
     "IsRandomizable": true,
     "X": 56.8,
     "Y": 47.4,
-    "Logic": "Bench-Galien's_Grave | Deepnest_40[right1] + (RIGHTCLAW | WINGS + LEFTCLAW)",
+    "Logic": "Deepnest_40[right1] + (RIGHTCLAW | WINGS + LEFTCLAW)",
     "LogicOverrides": [
       {
         "name": "Deepnest_40[right1]",
@@ -2514,7 +2528,7 @@
     "IsRandomizable": true,
     "X": 6.2,
     "Y": 25.4,
-    "Logic": "Bench-Ancient_Nest | Deepnest_44[top1]",
+    "Logic": "Deepnest_44[top1]",
     "LogicOverrides": [
       {
         "name": "Deepnest_44[top1]",
@@ -2624,7 +2638,7 @@
     "IsRandomizable": true,
     "X": 53.8,
     "Y": 230.4,
-    "Logic": "Bench-King's_Door | Abyss_06_Core[top1]",
+    "Logic": "Abyss_06_Core[top1]",
     "LogicOverrides": [
       {
         "name": "Abyss_06_Core[top1]",
@@ -2845,23 +2859,23 @@
     "IsRandomizable": true,
     "X": 12.4,
     "Y": 9.4,
-    "Logic": "Mines_35[left1] + QUAKE | Bench-Crystallized_Mound",
+    "Logic": "Mines_35[left1] + Broke_Crystallized_Mound_Quake_Floor",
     "LogicOverrides": [
       {
         "name": "Mines_35[left1]",
-        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | (RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | DIFFICULTSKIPS + AIRSTALL)) | WINGS)"
+        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS + DIFFICULTSKIPS) | WINGS)"
       },
       {
         "name": "Descending_Dark",
-        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | (RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | DIFFICULTSKIPS + AIRSTALL)) | WINGS)"
+        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS + DIFFICULTSKIPS) | WINGS)"
       },
       {
         "name": "Grub-Crystallized_Mound",
-        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | (RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | AIRSTALL)) | WINGS)"
+        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS) | WINGS)"
       },
       {
         "name": "Soul_Totem-Crystallized_Mound",
-        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | (RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | AIRSTALL)) | WINGS) + (WINGS | LEFTDASH | BACKGROUNDPOGOS)"
+        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS) | WINGS) + (WINGS | LEFTDASH | BACKGROUNDPOGOS)"
       }
     ],
     "ExtraDeployers": [],
@@ -2948,7 +2962,7 @@
     "IsRandomizable": true,
     "X": 4.9,
     "Y": 27.4,
-    "Logic": "Mines_28[left1] | Mines_28[door1] | Bench-Peak_Ravine",
+    "Logic": "Mines_28[left1] | Mines_28[door1]",
     "LogicOverrides": [
       {
         "name": "Mines_28[bot1]",
@@ -2969,7 +2983,7 @@
     "IsRandomizable": true,
     "X": 161.1,
     "Y": 5.4,
-    "Logic": "Bench-Crystal_Cavern | Mines_23[right2]",
+    "Logic": "Mines_23[right2]",
     "LogicOverrides": [
       {
         "name": "Mines_23[right2]",
@@ -2990,7 +3004,7 @@
     "IsRandomizable": true,
     "X": 237.8,
     "Y": 6.4,
-    "Logic": "Bench-Mining_Golem | *Crystal_Heart",
+    "Logic": "*Crystal_Heart",
     "LogicOverrides": [
       {
         "name": "Crystal_Heart",
@@ -3015,7 +3029,7 @@
     "IsRandomizable": true,
     "X": 60.0,
     "Y": 8.4,
-    "Logic": "Bench-Mimic's_Secret | Mines_16[top1]",
+    "Logic": "Mines_16[top1]",
     "LogicOverrides": [
       {
         "name": "Mines_16[top1]",
@@ -3023,7 +3037,7 @@
       },
       {
         "name": "Grub-Crystal_Peak_Mimic",
-        "logic": "ORIG | Bench-Mimic's_Secret + (LEFTCLAW | WINGS | RIGHTCLAW + (LEFTDASH | AIRSTALL))"
+        "logic": "ORIG | Bench-Mimic's_Secret + (LEFTCLAW | WINGS | RIGHTCLAW + (LEFTDASH | SPELLAIRSTALL + $CASTSPELL[2]))"
       },
       {
         "name": "Mimic_Grub-Crystal_Peak",
@@ -3165,7 +3179,7 @@
     "IsRandomizable": true,
     "X": 23.2,
     "Y": 3.4,
-    "Logic": "Bench-Sanctuary_Vault | Fungus1_36[left1]",
+    "Logic": "Fungus1_36[left1]",
     "LogicOverrides": [
       {
         "name": "Fungus1_36[left1]",
@@ -3211,7 +3225,7 @@
       },
       {
         "name": "Boss_Essence-White_Defender",
-        "logic": "ORIG | Bench-Defender's_Repose + DREAMNAIL + DREAMER3 + Defeated_Dung_Defender + COMBAT[White_Defender]"
+        "logic": "ORIG | Bench-Defender's_Repose + DREAMNAIL + DREAMER3 + Defeated_Dung_Defender + Defeated_White_Defender"
       }
     ],
     "ExtraDeployers": [],
@@ -3228,7 +3242,7 @@
     "IsRandomizable": true,
     "X": 60.7,
     "Y": 71.4,
-    "Logic": "Bench-Hermit's_Approach | (Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)) + (SWIM | RIGHTSKIPACID)",
+    "Logic": "(Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)) + (SWIM | RIGHTSKIPACID)",
     "LogicOverrides": [
       {
         "name": "Room_GG_Shortcut[left1]",
@@ -3273,7 +3287,7 @@
       },
       {
         "name": "Soul_Totem-Waterways_Entrance",
-        "logic": "ORIG | Bench-Waterways_Entrance + (LEFTDASH | ENEMYPOGOS | AIRSTALL | SHADESKIPS)"
+        "logic": "ORIG | Bench-Waterways_Entrance + (LEFTDASH | ENEMYPOGOS | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL] | $SHADESKIP)"
       }
     ],
     "ExtraDeployers": [],
@@ -3290,7 +3304,7 @@
     "IsRandomizable": true,
     "X": 53.9,
     "Y": 20.4,
-    "Logic": "*Isma's_Tear | Bench-Isma's_Grove",
+    "Logic": "*Isma's_Tear",
     "LogicOverrides": [
       {
         "name": "Waterways_13[left2]",
@@ -3323,7 +3337,7 @@
     "IsRandomizable": true,
     "X": 44.0,
     "Y": 29.4,
-    "Logic": "Waterways_07 + (RIGHTCLAW + WINGS | LEFTCLAW + (WINGS | LEFTDASH | RIGHTSUPERDASH | ACID + ENEMYPOGOS)) | Bench-Acid_Sluice_East",
+    "Logic": "Waterways_07 + (RIGHTCLAW + WINGS | LEFTCLAW + (WINGS | LEFTDASH | RIGHTSUPERDASH | ACID + ENEMYPOGOS))",
     "LogicOverrides": [
       {
         "name": "Waterways_07",
@@ -3353,7 +3367,7 @@
     "IsRandomizable": true,
     "X": 96.9,
     "Y": 12.2,
-    "Logic": "Waterways_06[top1] | Waterways_06[right1] + (ACID | LEFTSUPERDASH) | Bench-Acid_Sluice_West",
+    "Logic": "Waterways_06[top1] | Waterways_06[right1] + (ACID | LEFTSUPERDASH)",
     "LogicOverrides": [
       {
         "name": "Waterways_06[top1]",
@@ -3378,7 +3392,7 @@
     "IsRandomizable": true,
     "X": 50.6,
     "Y": 31.4,
-    "Logic": "Waterways_08[top1] + (LEFTCLAW | WINGS | SWIM | RIGHTDASH | AIRSTALL)",
+    "Logic": "Waterways_08[top1] + (LEFTCLAW | WINGS | SWIM | RIGHTDASH | SPELLAIRSTALL + $CASTSPELL[2,before:ROOMSOUL,after:ROOMSOUL])",
     "LogicOverrides": [
       {
         "name": "Waterways_08[top1]",
@@ -3407,7 +3421,7 @@
     "IsRandomizable": true,
     "X": 14.6,
     "Y": 3.4,
-    "Logic": "Bench-Remote_Acid_Sluice | Waterways_14[bot1]",
+    "Logic": "Waterways_14[bot1]",
     "LogicOverrides": [
       {
         "name": "Waterways_14[bot1]",
@@ -3428,7 +3442,7 @@
     "IsRandomizable": true,
     "X": 20.2,
     "Y": 4.4,
-    "Logic": "*Tram_Pass | Bench-Destroyed_Tram",
+    "Logic": "*Tram_Pass",
     "LogicOverrides": [
       {
         "name": "Deepnest_26b[right2]",
@@ -3457,7 +3471,8 @@
     "IsRandomizable": true,
     "X": 72.5,
     "Y": 61.6,
-    "Logic": "White_Palace_02[left1] + (RIGHTCLAW + WINGS | LEFTCLAW + WINGS + (COMBAT[White_Palace_Arenas] | RIGHTSUPERDASH)) | Bench-Kingsmould_Duelist",
+    "DreamGateRestricted": true,
+    "Logic": "White_Palace_02[left1] + (RIGHTCLAW + WINGS | LEFTCLAW + WINGS + (COMBAT[White_Palace_Arenas] | RIGHTSUPERDASH))",
     "LogicOverrides": [
       {
         "name": "White_Palace_02[left1]",
@@ -3478,7 +3493,8 @@
     "IsRandomizable": true,
     "X": 14.1,
     "Y": 97.4,
-    "Logic": "White_Palace_14[bot1] + (ANYCLAW | WINGS | BACKGROUNDPOGOS) | Bench-Palace_West",
+    "DreamGateRestricted": true,
+    "Logic": "White_Palace_14[bot1] + (ANYCLAW | WINGS | BACKGROUNDPOGOS)",
     "LogicOverrides": [
       {
         "name": "White_Palace_14[bot1]",
@@ -3500,7 +3516,8 @@
     "X": 73.5,
     "Y": 14.3,
     "FlingType": "StraightUp",
-    "Logic": "White_Palace_04[top1] + (RIGHTDASH | WINGS) | White_Palace_04[right2] + (RIGHTCLAW + LEFTSUPERDASH + (WINGS | RIGHTDASH) | (FULLCLAW | ANYCLAW + WINGS | LEFTCLAW + PRECISEMOVEMENT) + (WINGS | LEFTDASH)) | Bench-Sawblade_Choir",
+    "DreamGateRestricted": true,
+    "Logic": "White_Palace_04[top1] + (RIGHTDASH | WINGS) | White_Palace_04[right2] + (RIGHTCLAW + LEFTSUPERDASH + (WINGS | RIGHTDASH) | (FULLCLAW | ANYCLAW + WINGS | LEFTCLAW + PRECISEMOVEMENT) + (WINGS | LEFTDASH))",
     "LogicOverrides": [
       {
         "name": "White_Palace_04[top1]",
@@ -3525,6 +3542,7 @@
     "IsRandomizable": true,
     "X": 173.5,
     "Y": 114.4,
+    "DreamGateRestricted": true,
     "Logic": "White_Palace_16[left1]",
     "LogicOverrides": [
       {
@@ -3546,7 +3564,8 @@
     "IsRandomizable": true,
     "X": 95.0,
     "Y": 61.4,
-    "Logic": "White_Palace_05[left1] | White_Palace_05[right1] + (LEFTDASH | WINGS) + (LEFTCLAW | RIGHTCLAW + WINGS) + (FULLDASH | PRECISEMOVEMENT) | Bench-Thorny_Respite",
+    "DreamGateRestricted": true,
+    "Logic": "White_Palace_05[left1] | White_Palace_05[right1] + (LEFTDASH | WINGS) + (LEFTCLAW | RIGHTCLAW + WINGS) + (FULLDASH | PRECISEMOVEMENT)",
     "LogicOverrides": [
       {
         "name": "White_Palace_05[right1]",
@@ -3571,6 +3590,7 @@
     "IsRandomizable": true,
     "X": 117.8,
     "Y": 20.4,
+    "DreamGateRestricted": true,
     "Logic": "White_Palace_08[right1]",
     "LogicOverrides": [
       {
@@ -3592,7 +3612,8 @@
     "IsRandomizable": true,
     "X": 170.0,
     "Y": 209.4,
-    "Logic": "Bench-Throne_Approach | White_Palace_13[left1] + RIGHTSUPERDASH + (RIGHTCLAW | RIGHTDASH | WINGS | AIRSTALL) | White_Palace_13 + RIGHTCLAW + FULLSUPERDASH",
+    "DreamGateRestricted": true,
+    "Logic": "White_Palace_13[left1] + RIGHTSUPERDASH + (RIGHTCLAW | RIGHTDASH | WINGS | SPELLAIRSTALL + $CASTSPELL) | White_Palace_13 + RIGHTCLAW + FULLSUPERDASH",
     "LogicOverrides": [
       {
         "name": "White_Palace_13",
@@ -3621,7 +3642,8 @@
     "IsRandomizable": true,
     "X": 94.3,
     "Y": 33.4,
-    "Logic": "White_Palace_17[bot1] + RIGHTCLAW + WINGS | Bench-Path_Midpoint",
+    "DreamGateRestricted": true,
+    "Logic": "White_Palace_17[bot1] + RIGHTCLAW + WINGS",
     "LogicOverrides": [
       {
         "name": "White_Palace_17[bot1]",

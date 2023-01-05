@@ -3,6 +3,7 @@ using GlobalEnums;
 using RandomizerCore.Logic;
 using BenchRando.IC;
 using BenchRando.Rando;
+using RandomizerCore.StringLogic;
 
 namespace BenchRando
 {
@@ -19,6 +20,7 @@ namespace BenchRando
         public float X { get; init; }
         public float Y { get; init; }
         public FlingType FlingType { get; init; }
+        public bool DreamGateRestricted { get; init; }
         public string Logic { get; init; }
         public RawLogicDef[] LogicOverrides { get; init; }
         public IDeployer[] ExtraDeployers { get; init; } = Array.Empty<IDeployer>();
@@ -29,6 +31,16 @@ namespace BenchRando
             return IsBaseBench
                 ? Bench.baseBenches.First(b => b.sceneName == SceneName).respawnMarker
                 : BenchDeployer.GetRespawnMarkerName(SceneName, X, Y);
+        }
+
+        public virtual string GetTermName()
+        {
+            return "Bench_Item_Term-" + Name.Substring(6);
+        }
+
+        public virtual string GetWaypointName()
+        {
+            return Name;
         }
 
         /// <summary>
