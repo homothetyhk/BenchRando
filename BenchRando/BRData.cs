@@ -51,12 +51,14 @@ namespace BenchRando
 
             BenchLookup = new(benchLookup);
 
+            /*
             BenchRandoMod.Instance.Log($"Base count: " + BenchLookup.Values.Count(b => b.IsBaseBench));
             BenchRandoMod.Instance.Log($"Extended count: " + BenchLookup.Count);
             foreach (var g in BenchLookup.Values.GroupBy(g => g.BenchAreaName))
             {
                 BenchRandoMod.Instance.Log($"{g.Key}: {g.Count()}");
             }
+            */
         }
 
         /// <summary>

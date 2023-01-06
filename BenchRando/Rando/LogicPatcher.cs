@@ -45,7 +45,7 @@ namespace BenchRando.Rando
             if (RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.WarpUnlocks
                 || RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.RestAndWarpUnlocks)
             {
-                lmb.DoMacroEdit(new("INCLUDEBENCHWARPSELECT", "TRUE"));
+                lmb.DoMacroEdit(new("INCLUDEBENCHWARPSELECT", "TRUE")); // we won't insert this macro into BR logic, but since we rely on select warps in logic we may as well properly update it
             }
 
             foreach (string s in RandoInterop.LS.Benches)
@@ -64,7 +64,6 @@ namespace BenchRando.Rando
                         lmb.DoLogicEdit(l);
                     }
                 }
-                lmb.AddLogicDef(new(s, b.Logic));
             }
             foreach (string s in RandoInterop.LS.NonrandomizedBenches)
             {
@@ -77,7 +76,6 @@ namespace BenchRando.Rando
                         lmb.DoLogicEdit(l);
                     }
                 }
-                lmb.AddLogicDef(new(s, b.Logic));
             }
 
 
@@ -177,15 +175,14 @@ namespace BenchRando.Rando
                     break;
                 case ItemRandoMode.WarpUnlocks:
                     lcb.AndWith("$BENCHRESET");
-                    lcb.OrWith($"WARPSTARTTOBENCH + {def.GetTermName()}");
+                    lcb.OrWith($"Start_State + $WARPTOBENCH + {def.GetTermName()}");
                     break;
                 case ItemRandoMode.RestAndWarpUnlocks:
-                    lcb.AndWith($"$BENCHRESET");
-                    lcb.OrWith($"WARPSTARTTOBENCH");
-                    lcb.AndWithLeft(def.GetTermName());
+                    lcb.AndWith($"({def.GetTermName()} + $BENCHRESET | ANY)");
+                    lcb.OrWith($"Start_State + $WARPTOBENCH + {def.GetTermName()}");
                     break;
                 case ItemRandoMode.RestUnlocks:
-                    lcb.AndWith($"{def.GetTermName()} + $BENCHRESET");
+                    lcb.AndWith($"({def.GetTermName()} + $BENCHRESET | ANY)");
                     break;
             }
             return new(name, lcb.ToInfix());
