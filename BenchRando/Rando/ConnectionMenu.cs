@@ -39,6 +39,7 @@ namespace BenchRando.Rando
             mainPage = new("BenchRando Main Page", landingPage);
             entryButton = new(landingPage, Localize("Bench Rando"));
             entryButton.AddHideAndShowEvent(mainPage);
+            landingPage.BeforeShow += () => entryButton.Text.color = RandoInterop.IsEnabled() ? Colors.TRUE_COLOR : Colors.DEFAULT_COLOR;
 
             brsMEF = new(mainPage, BenchRandoMod.GS.BenchRandomizationSettings);
             Localize(brsMEF);

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Modding;
+using Newtonsoft.Json;
 using RandomizerMod.RC;
 
 namespace BenchRando.Rando
@@ -19,6 +20,7 @@ namespace BenchRando.Rando
             RandomizerMod.Logging.SettingsLog.AfterLogSettings += OnLogSettings;
             RandomizerMod.Logging.LogManager.AddLogger(new BenchLogger());
             CondensedSpoilerLogger.AddCategory("Benches", args => true, new(BRData.EmbeddedBenchData.Keys));
+            if (ModHooks.GetMod("RandoSettingsManager") is Mod) SettingsInterop.RandoSettingsManagerInterop.Hook();
         }
 
         /// <summary>
