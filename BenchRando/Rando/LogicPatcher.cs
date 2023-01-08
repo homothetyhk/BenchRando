@@ -28,6 +28,8 @@ namespace BenchRando.Rando
 
         private const string SAFE_BENCH_MACRO = "DGBENCH";
 
+        private const string INCLUDEBENCHWARPSELECT = "INCLUDEBENCHWARPSELECT";
+
         public static void Setup()
         {
             RCData.RuntimeLogicOverride.Subscribe(0.2f, ModifyLMB);
@@ -45,7 +47,7 @@ namespace BenchRando.Rando
             if (RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.WarpUnlocks
                 || RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.RestAndWarpUnlocks)
             {
-                lmb.DoMacroEdit(new("INCLUDEBENCHWARPSELECT", "TRUE")); // we won't insert this macro into BR logic, but since we rely on select warps in logic we may as well properly update it
+                lmb.DoMacroEdit(new(INCLUDEBENCHWARPSELECT, "TRUE")); // we won't insert this macro into BR logic, but since we rely on select warps in logic we may as well properly update it
             }
 
             foreach (string s in RandoInterop.LS.Benches)
@@ -56,7 +58,7 @@ namespace BenchRando.Rando
             foreach (string s in RandoInterop.LS.RandomizedBenches)
             {
                 BenchDef b = BRData.BenchLookup[s];
-                lmb.AddWaypoint(GetWaypointLogic(b));
+                lmb.AddWaypoint(GetWaypointLogic(lmb, b));
                 if (!b.IsBaseBench)
                 {
                     foreach (RawLogicDef l in b.LogicOverrides)
@@ -68,7 +70,7 @@ namespace BenchRando.Rando
             foreach (string s in RandoInterop.LS.NonrandomizedBenches)
             {
                 BenchDef b = BRData.BenchLookup[s];
-                lmb.AddWaypoint(GetNonrandomizedWaypointLogic(b));
+                lmb.AddWaypoint(GetNonrandomizedWaypointLogic(lmb, b));
                 if (!b.IsBaseBench)
                 {
                     foreach (RawLogicDef l in b.LogicOverrides)
@@ -84,11 +86,10 @@ namespace BenchRando.Rando
             LogicClauseBuilder canBench = new(ConstToken.False);
             foreach (string s in RandoInterop.LS.Benches)
             {
-                canBench.OrWith(BRData.BenchLookup[s].GetWaypointName());
+                canBench.OrWith(BRData.BenchLookup[s].GetWaypointName(), lmb.LP);
             }
             LogicClauseBuilder canWarpToDGBench;
             LogicClauseBuilder canWarpToBench;
-            const string INCLUDEBENCHWARPSELECT = "INCLUDEBENCHWARPSELECT";
             const string Can_Bench = "Can_Bench";
             const string Can_Warp_To_DG_Bench = "Can_Warp_To_DG_Bench";
             const string Can_Warp_To_Bench = "Can_Warp_To_Bench";
@@ -98,30 +99,30 @@ namespace BenchRando.Rando
                 case ItemRandoMode.WarpUnlocks:
                 case ItemRandoMode.RestAndWarpUnlocks:
                     canWarpToDGBench = new(ConstToken.False);
-                    canWarpToBench = new(Can_Warp_To_DG_Bench);
+                    canWarpToBench = new(Can_Warp_To_DG_Bench, lmb.LP);
                     foreach (string s in RandoInterop.LS.RandomizedBenches)
                     {
                         BenchDef def = BRData.BenchLookup[s];
-                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetTermName());
-                        else canWarpToBench.OrWith(def.GetTermName());
+                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetTermName(), lmb.LP);
+                        else canWarpToBench.OrWith(def.GetTermName(), lmb.LP);
                     }
                     foreach (string s in RandoInterop.LS.NonrandomizedBenches)
                     {
                         BenchDef def = BRData.BenchLookup[s];
-                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetWaypointName());
-                        else canWarpToBench.OrWith(def.GetWaypointName());
+                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetWaypointName(), lmb.LP);
+                        else canWarpToBench.OrWith(def.GetWaypointName(), lmb.LP);
                     }
                     break;
                 case ItemRandoMode.None:
                 case ItemRandoMode.RestUnlocks:
                 default:
-                    canWarpToDGBench = new(INCLUDEBENCHWARPSELECT);
-                    canWarpToBench = new(INCLUDEBENCHWARPSELECT + " + " + Can_Warp_To_DG_Bench);
+                    canWarpToDGBench = lmb.LP.ParseInfixToBuilder(INCLUDEBENCHWARPSELECT);
+                    canWarpToBench = lmb.LP.ParseInfixToBuilder(INCLUDEBENCHWARPSELECT + " + " + Can_Warp_To_DG_Bench);
                     foreach (string s in RandoInterop.LS.Benches)
                     {
                         BenchDef def = BRData.BenchLookup[s];
-                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetWaypointName());
-                        else canWarpToBench.OrWith(def.GetWaypointName());
+                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetWaypointName(), lmb.LP);
+                        else canWarpToBench.OrWith(def.GetWaypointName(), lmb.LP);
                     }
                     break;
             }
@@ -164,35 +165,35 @@ namespace BenchRando.Rando
             }
         }
 
-        private static RawWaypointDef GetWaypointLogic(BenchDef def)
+        private static RawWaypointDef GetWaypointLogic(LogicManagerBuilder lmb, BenchDef def)
         {
             string name = def.GetWaypointName();
-            LogicClauseBuilder lcb = new(Infix.Tokenize(def.Logic));
+            LogicClauseBuilder lcb = lmb.LP.ParseInfixToBuilder(def.Logic);
             switch (RandoInterop.LS.Settings.RandomizedItems)
             {
                 case ItemRandoMode.None:
-                    lcb.AndWith("$BENCHRESET");
+                    lcb.AndWith("$BENCHRESET", lmb.LP);
                     break;
                 case ItemRandoMode.WarpUnlocks:
-                    lcb.AndWith("$BENCHRESET");
-                    lcb.OrWith($"Start_State + $WARPTOBENCH + {def.GetTermName()}");
+                    lcb.AndWith("$BENCHRESET", lmb.LP);
+                    lcb.OrWith($"Start_State + $WARPTOBENCH + {def.GetTermName()}", lmb.LP);
                     break;
                 case ItemRandoMode.RestAndWarpUnlocks:
-                    lcb.AndWith($"({def.GetTermName()} + $BENCHRESET | ANY)");
-                    lcb.OrWith($"Start_State + $WARPTOBENCH + {def.GetTermName()}");
+                    lcb.AndWith($"({def.GetTermName()} + $BENCHRESET | ANY)", lmb.LP);
+                    lcb.OrWith($"Start_State + $WARPTOBENCH + {def.GetTermName()}", lmb.LP);
                     break;
                 case ItemRandoMode.RestUnlocks:
-                    lcb.AndWith($"({def.GetTermName()} + $BENCHRESET | ANY)");
+                    lcb.AndWith($"({def.GetTermName()} + $BENCHRESET | ANY)", lmb.LP);
                     break;
             }
             return new(name, lcb.ToInfix());
         }
 
-        private static RawWaypointDef GetNonrandomizedWaypointLogic(BenchDef def)
+        private static RawWaypointDef GetNonrandomizedWaypointLogic(LogicManagerBuilder lmb, BenchDef def)
         {
             string name = def.GetWaypointName();
             LogicClauseBuilder lcb = new(Infix.Tokenize(def.Logic));
-            lcb.AndWith("$BENCHRESET");
+            lcb.AndWith("$BENCHRESET", lmb.LP);
             return new(name, lcb.ToInfix());
         }
     }
