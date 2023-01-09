@@ -2863,11 +2863,11 @@
     "LogicOverrides": [
       {
         "name": "Mines_35[left1]",
-        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS + DIFFICULTSKIPS) | WINGS)"
+        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS + DIFFICULTSKIPS) | WINGS + OBSCURESKIPS)"
       },
       {
         "name": "Descending_Dark",
-        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS + DIFFICULTSKIPS) | WINGS)"
+        "logic": "ORIG | Bench-Crystallized_Mound + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS + DIFFICULTSKIPS) | WINGS + OBSCURESKIPS)"
       },
       {
         "name": "Grub-Crystallized_Mound",
