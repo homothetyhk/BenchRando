@@ -14,7 +14,7 @@ namespace BenchRando.Rando
 
             // Add benches to the pool shortly after the rest of the items; they will be
             // added to the correct group if necessary because of the matcher we added in SetupRefs.
-            // we will not bother to put benches in vanilla; they have no progression effect there.
+            // we will not put bench items in vanilla, since benches are represented by waypoints elsewhere
             RequestBuilder.OnUpdate.Subscribe(0.6f, AddBenches);
 
             RequestBuilder.OnUpdate.Subscribe(5.1f, AddStartBlessing);
@@ -37,12 +37,14 @@ namespace BenchRando.Rando
                 {
                     info.getItemDef = def.GetRMItemDef;
                 });
+
+                ItemRandoMode itemMode = RandoInterop.LS.Settings.RandomizedItems;
                 rb.EditLocationRequest(def.Name, info =>
                 {
                     info.getLocationDef = def.GetRMLocationDef;
                     info.onPlacementFetch += (f, r, p) =>
                     {
-                        switch (RandoInterop.LS.Settings.RandomizedItems)
+                        switch (itemMode)
                         {
                             case ItemRandoMode.RestAndWarpUnlocks:
                             case ItemRandoMode.RestUnlocks:
@@ -130,14 +132,6 @@ namespace BenchRando.Rando
                 {
                     rb.AddItemByName(bench);
                     rb.AddLocationByName(bench);
-                }
-            }
-            if (RandoInterop.LS.NonrandomizedBenches != null)
-            {
-                // Maintaining vanilla is important for Can_Bench
-                foreach (string bench in RandoInterop.LS.NonrandomizedBenches)
-                {
-                    rb.AddToVanilla(bench, bench);
                 }
             }
         }

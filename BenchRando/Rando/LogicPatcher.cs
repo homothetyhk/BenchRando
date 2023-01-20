@@ -55,10 +55,10 @@ namespace BenchRando.Rando
                 lmb.AddItem(new BoolItem(s, lmb.GetOrAddTerm(BRData.BenchLookup[s].GetTermName())));
             }
 
-            foreach (string s in RandoInterop.LS.RandomizedBenches)
+            foreach (string s in RandoInterop.LS.Benches)
             {
                 BenchDef b = BRData.BenchLookup[s];
-                lmb.AddWaypoint(GetWaypointLogic(lmb, b));
+                lmb.AddWaypoint(new(b.GetWaypointName(), b.Logic));
                 if (!b.IsBaseBench)
                 {
                     foreach (RawLogicDef l in b.LogicOverrides)
@@ -67,19 +67,6 @@ namespace BenchRando.Rando
                     }
                 }
             }
-            foreach (string s in RandoInterop.LS.NonrandomizedBenches)
-            {
-                BenchDef b = BRData.BenchLookup[s];
-                lmb.AddWaypoint(GetNonrandomizedWaypointLogic(lmb, b));
-                if (!b.IsBaseBench)
-                {
-                    foreach (RawLogicDef l in b.LogicOverrides)
-                    {
-                        lmb.DoLogicEdit(l);
-                    }
-                }
-            }
-
 
             // We rebuild the Can_Bench waypoint to use the new benches
             // This the ability to rest at any bench
@@ -129,27 +116,20 @@ namespace BenchRando.Rando
             lmb.LogicLookup[Can_Bench] = new(canBench);
             lmb.LogicLookup[Can_Warp_To_DG_Bench] = new(canWarpToDGBench);
             lmb.LogicLookup[Can_Warp_To_Bench] = new(canWarpToBench);
-
-
-            // If vanilla benches don't exist, we remove logic that assumes benches are available for nonterminal shade skips and charm usage
-            if (RandoInterop.LS.Settings.RandomizeBenchSpots 
-                || RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.RestAndWarpUnlocks 
-                || RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.RestUnlocks)
-            {
-                foreach (string m in brokenShadeSkipMacros)
-                {
-                    lmb.DoMacroEdit(new(m, SAFE_SHADESKIP_MACRO));
-                }
-                foreach (string m in brokenBenchMacros)
-                {
-                    lmb.DoMacroEdit(new(m, SAFE_BENCH_MACRO));
-                }
-            }
         }
 
         public static void LateModifyLMB(GenerationSettings gs, LogicManagerBuilder lmb)
         {
             if (!RandoInterop.IsEnabled()) return;
+
+            foreach (string b in RandoInterop.LS.RandomizedBenches)
+            {
+                EditWaypoint(lmb, BRData.BenchLookup[b]);
+            }
+            foreach (string b in RandoInterop.LS.NonrandomizedBenches)
+            {
+                EditNonrandomizedWaypoint(lmb, BRData.BenchLookup[b]);
+            }
 
             if (RandoInterop.LS.Settings.RandomizeBenchSpots)
             {
@@ -163,12 +143,29 @@ namespace BenchRando.Rando
                     }
                 }
             }
+
+            // If vanilla benches don't exist, we remove logic that assumes benches are available for nonterminal shade skips and charm usage
+            if (RandoInterop.LS.Settings.RandomizeBenchSpots
+                || RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.RestAndWarpUnlocks
+                || RandoInterop.LS.Settings.RandomizedItems == ItemRandoMode.RestUnlocks)
+            {
+                foreach (string m in brokenShadeSkipMacros)
+                {
+                    lmb.DoMacroEdit(new(m, SAFE_SHADESKIP_MACRO));
+                }
+                foreach (string m in brokenBenchMacros)
+                {
+                    lmb.DoMacroEdit(new(m, SAFE_BENCH_MACRO));
+                }
+            }
         }
 
-        private static RawWaypointDef GetWaypointLogic(LogicManagerBuilder lmb, BenchDef def)
-        {
+        private static void EditWaypoint(LogicManagerBuilder lmb, BenchDef def)
+        { 
             string name = def.GetWaypointName();
-            LogicClauseBuilder lcb = lmb.LP.ParseInfixToBuilder(def.Logic);
+            LogicClauseBuilder lcb = new(lmb.LogicLookup[name]);
+            lcb.Subst(lmb.LP.GetTermToken("$BENCHRESET"), ConstToken.True);
+            lcb.Subst(lmb.LP.GetTermToken("$WARPTOBENCH"), ConstToken.False);
             switch (RandoInterop.LS.Settings.RandomizedItems)
             {
                 case ItemRandoMode.None:
@@ -186,15 +183,16 @@ namespace BenchRando.Rando
                     lcb.AndWith($"({def.GetTermName()} + $BENCHRESET | ANY)", lmb.LP);
                     break;
             }
-            return new(name, lcb.ToInfix());
+            lmb.LogicLookup[name] = new(lcb);
         }
 
-        private static RawWaypointDef GetNonrandomizedWaypointLogic(LogicManagerBuilder lmb, BenchDef def)
+        private static void EditNonrandomizedWaypoint(LogicManagerBuilder lmb, BenchDef def)
         {
             string name = def.GetWaypointName();
-            LogicClauseBuilder lcb = new(Infix.Tokenize(def.Logic));
+            LogicClauseBuilder lcb = new(lmb.LogicLookup[name]);
+            lcb.Subst(lmb.LP.GetTermToken("$BENCHRESET"), ConstToken.True);
             lcb.AndWith("$BENCHRESET", lmb.LP);
-            return new(name, lcb.ToInfix());
+            lmb.LogicLookup[name] = new(lcb);
         }
     }
 }
