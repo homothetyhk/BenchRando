@@ -20,7 +20,7 @@ namespace BenchRando.Rando
             RandomizerMod.Logging.SettingsLog.AfterLogSettings += OnLogSettings;
             RandomizerMod.Logging.LogManager.AddLogger(new BenchLogger());
             CondensedSpoilerLogger.AddCategory("Benches", args => true, new(BRData.EmbeddedBenchData.Keys));
-            if (ModHooks.GetMod("RandoSettingsManager") is Mod) SettingsInterop.RandoSettingsManagerInterop.Hook();
+            SettingsInterop.RandoSettingsManagerInterop.Hook();
         }
 
         /// <summary>
