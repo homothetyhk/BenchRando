@@ -568,7 +568,7 @@
     "IsRandomizable": true,
     "X": "NaN",
     "Y": "NaN",
-    "Logic": "Waterways_02[top3] + QUAKE | Waterways_02 + (LEFTCLAW | WINGS + RIGHTCLAW | ENEMYPOGOS + DANGEROUSSKIPS + (WINGS | RIGHTCLAW))",
+    "Logic": "Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 | Waterways_02 + (LEFTCLAW | WINGS + RIGHTCLAW | ENEMYPOGOS + DANGEROUSSKIPS + (WINGS | RIGHTCLAW))",
     "LogicOverrides": [
       {
         "name": "Waterways_02",
