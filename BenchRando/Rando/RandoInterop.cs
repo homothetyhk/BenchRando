@@ -87,7 +87,7 @@ namespace BenchRando.Rando
 
         private static void OnLogSettings(RandomizerMod.Logging.LogArguments args, TextWriter tw)
         {
-            if (ItemChangerMod.Modules.Get<IC.BRLocalSettingsModule>() is { LS.Settings: BenchRandomizationSettings randoSettings })
+            if (ItemChangerMod.Modules?.Get<IC.BRLocalSettingsModule>() is { LS.Settings: BenchRandomizationSettings randoSettings })
             {
                 tw.WriteLine("Logging BenchRando BenchRandomizationSettings:");
                 using JsonTextWriter jtw = new(tw) { CloseOutput = false };
