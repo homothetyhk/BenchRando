@@ -1,5 +1,7 @@
-﻿using Modding;
+﻿using MenuChanger;
+using Modding;
 using Newtonsoft.Json;
+using RandomizerMod.Logging;
 using RandomizerMod.RC;
 
 namespace BenchRando.Rando
@@ -17,11 +19,15 @@ namespace BenchRando.Rando
             LogicPatcher.Setup();
             RequestModifier.Setup();
             RandoController.OnExportCompleted += Finish;
-            RandomizerMod.Logging.SettingsLog.AfterLogSettings += OnLogSettings;
-            RandomizerMod.Logging.LogManager.AddLogger(new BenchLogger());
+            RandoController.OnCreateLogArguments += AddLocalSettingsToLogArguments;
+            SettingsLog.AfterLogSettings += OnLogSettings;
+            LogManager.AddLogger(new BenchLogger());
             CondensedSpoilerLogger.AddCategory("Benches", args => true, new(BRData.EmbeddedBenchData.Keys));
             SettingsInterop.RandoSettingsManagerInterop.Hook();
+            MenuChangerMod.OnExitMainMenu += Clear;
         }
+
+        internal const string BenchRandoSettingsKey = "BenchRandoSettings";
 
         /// <summary>
         /// Disposes local settings once no longer needed to prevent accidental access.
@@ -85,15 +91,32 @@ namespace BenchRando.Rando
             }
         }
 
-        private static void OnLogSettings(RandomizerMod.Logging.LogArguments args, TextWriter tw)
+        private static void AddLocalSettingsToLogArguments(LogArguments args)
         {
-            if (ItemChangerMod.Modules.Get<IC.BRLocalSettingsModule>() is { LS.Settings: BenchRandomizationSettings randoSettings })
+            args.properties[BenchRandoSettingsKey] = LS;
+        }
+
+        private static void OnLogSettings(LogArguments args, TextWriter tw)
+        {
+            if (args.TryGetBRLocalSettings(out LocalSettings ls) && ls.Settings is BenchRandomizationSettings randoSettings)
             {
                 tw.WriteLine("Logging BenchRando BenchRandomizationSettings:");
                 using JsonTextWriter jtw = new(tw) { CloseOutput = false };
                 JsonUtil._js.Serialize(jtw, randoSettings);
                 tw.WriteLine();
             }
+        }
+
+        internal static bool TryGetBRLocalSettings(this LogArguments args, out LocalSettings ls)
+        {
+            ls = null;
+
+            if (args is null) return false;
+
+            if (!args.properties.TryGetValue(BenchRandoSettingsKey, out object objLs)) return false;
+
+            ls = objLs as LocalSettings;
+            return ls is not null;
         }
     }
 }

@@ -6,13 +6,15 @@ namespace BenchRando.Rando
     {
         public override void Log(LogArguments args)
         {
-            LogManager.Write(DoLog, "BenchSpoiler.json");
+            LogManager.Write(tw => DoLog(tw, args), "BenchSpoiler.json");
         }
 
-        public void DoLog(TextWriter tw)
+        public void DoLog(TextWriter tw, LogArguments args)
         {
-            JsonUtil.Serialize(RandoInterop.LS, tw);
-            RandoInterop.Clear(); // RandoInterop data should no longer be needed once logging is finished
+            if (args.TryGetBRLocalSettings(out LocalSettings ls))
+            {
+                JsonUtil.Serialize(ls, tw);
+            }
         }
     }
 }
