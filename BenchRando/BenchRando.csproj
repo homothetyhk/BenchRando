@@ -12,7 +12,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <ImplicitUsings>true</ImplicitUsings>
     <NoWarn>1701;1702;CS1591;IDE0018</NoWarn>
+    <HollowKnightRefs>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed</HollowKnightRefs>
   </PropertyGroup>
+
+  <Import Project="LocalOverrides.targets" Condition="Exists('LocalOverrides.targets')" />
+  
   <ItemGroup>
     <Using Remove="System.Net.Http" />
     <Using Remove="System.Threading" />
@@ -25,7 +29,7 @@
     <Using Include="UnityEngine.SceneManagement.Scene" Alias="Scene" />
     <Using Include="HutongGames.PlayMaker" />
     <Using Include="Benchwarp.Benchwarp" Alias="BenchwarpMod" />
-  </ItemGroup>
+  </ItemGroup>  
   <ItemGroup>
     <None Remove="Resources\**\*.json" />
     <None Remove="Resources\**\*.xml" />
@@ -38,53 +42,56 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="ItemChanger">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\ItemChanger\ItemChanger.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\Mods\ItemChanger\ItemChanger.dll</HintPath>
     </Reference>
     <Reference Include="Benchwarp">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\Benchwarp\Benchwarp.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\Mods\Benchwarp\Benchwarp.dll</HintPath>
     </Reference>
     <Reference Include="MenuChanger">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\MenuChanger\MenuChanger.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\Mods\MenuChanger\MenuChanger.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_Assembly-CSharp">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_Assembly-CSharp.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_PlayMaker">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_PlayMaker.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\MMHOOK_PlayMaker.dll</HintPath>
     </Reference>
     <Reference Include="MonoMod.Utils">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MonoMod.Utils.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\MonoMod.Utils.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PlayMaker">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\PlayMaker.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\PlayMaker.dll</HintPath>
     </Reference>
     <Reference Include="RandomizerCore">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\RandomizerCore\RandomizerCore.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\Mods\RandomizerCore\RandomizerCore.dll</HintPath>
     </Reference>
-    <Reference Include="RandomizerMod">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\RandomizerMod\RandomizerMod.dll</HintPath>
+    <Reference Include="RandomizerMod" Condition="Exists('$(HollowKnightRefs)\Mods\RandomizerMod')">
+      <HintPath>$(HollowKnightRefs)\Mods\RandomizerMod\RandomizerMod.dll</HintPath>
+    </Reference>
+    <Reference Include="RandomizerMod" Condition="Exists('$(HollowKnightRefs)\Mods\Randomizer 4')">
+      <HintPath>$(HollowKnightRefs)\Mods\Randomizer 4\RandomizerMod.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Target Name="CopyMod" AfterTargets="PostBuildEvent">
-    <Copy SourceFiles="$(TargetPath);$(TargetDir)$(TargetName).pdb;$(TargetDir)$(TargetName).xml;$(SolutionDir)README.md" DestinationFolder="C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\$(TargetName)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(TargetPath);$(TargetDir)$(TargetName).pdb;$(TargetDir)$(TargetName).xml;$(SolutionDir)README.md" DestinationFolder="$(HollowKnightRefs)\Mods\$(TargetName)" SkipUnchangedFiles="true" />
   </Target>
   <Target Name="ClearReferenceCopyLocalPaths" AfterTargets="ResolveAssemblyReferences">
     <ItemGroup>
