@@ -1,5 +1,4 @@
 ﻿using BenchRando.IC;
-using RandomizerCore.Logic;
 using RandomizerCore.Randomization;
 using RandomizerMod.RC;
 
@@ -161,7 +160,7 @@ namespace BenchRando.Rando
             {
                 if (igb.strategy is DefaultGroupPlacementStrategy dgps)
                 {
-                    dgps.Constraints += (x, y) => !(BRData.IsBenchName(x.Name) && x.Name == y.Name);
+                    dgps.ConstraintList.Add(new DefaultGroupPlacementStrategy.Constraint((x, y) => !(BRData.IsBenchName(x.Name) && x.Name == y.Name), null, "Deranged:BenchRando"));
                 }
             }
         }

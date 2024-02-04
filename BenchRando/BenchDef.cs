@@ -3,7 +3,6 @@ using GlobalEnums;
 using RandomizerCore.Logic;
 using BenchRando.IC;
 using BenchRando.Rando;
-using RandomizerCore.StringLogic;
 
 namespace BenchRando
 {

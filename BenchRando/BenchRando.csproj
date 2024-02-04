@@ -4,8 +4,8 @@
     <RootNamespace>BenchRando</RootNamespace>
     <AssemblyName>BenchRando</AssemblyName>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.0.4</AssemblyVersion>
-    <FileVersion>1.0.4</FileVersion>
+    <VersionPrefix>1.0.5</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
     <Deterministic>true</Deterministic>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LangVersion>latest</LangVersion>
@@ -70,6 +70,9 @@
     </Reference>
     <Reference Include="RandomizerCore">
       <HintPath>$(HollowKnightRefs)\Mods\RandomizerCore\RandomizerCore.dll</HintPath>
+    </Reference>
+    <Reference Include="RandomizerCore.Json">
+      <HintPath>$(HollowKnightRefs)\Mods\RandomizerCore.Json\RandomizerCore.Json.dll</HintPath>
     </Reference>
     <Reference Include="RandomizerMod" Condition="Exists('$(HollowKnightRefs)\Mods\RandomizerMod')">
       <HintPath>$(HollowKnightRefs)\Mods\RandomizerMod\RandomizerMod.dll</HintPath>

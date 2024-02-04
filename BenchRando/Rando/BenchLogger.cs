@@ -1,4 +1,5 @@
-﻿using RandomizerMod.Logging;
+﻿using RandomizerCore.Json;
+using RandomizerMod.Logging;
 
 namespace BenchRando.Rando
 {
@@ -13,7 +14,7 @@ namespace BenchRando.Rando
         {
             if (args.TryGetBRLocalSettings(out LocalSettings ls))
             {
-                JsonUtil.Serialize(ls, tw);
+                JsonUtil.GetNonLogicSerializer().Serialize(tw, ls);
             }
         }
     }

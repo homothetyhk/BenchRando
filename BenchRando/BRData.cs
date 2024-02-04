@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using RandomizerCore.Json;
+using System.Collections.ObjectModel;
 
 namespace BenchRando
 {
@@ -86,7 +87,7 @@ namespace BenchRando
 
         static BRData()
         {
-            EmbeddedBenchData = new(JsonUtil.Deserialize<Dictionary<string, BenchDef>>("BenchRando.Resources.benches.json"));
+            EmbeddedBenchData = new(JsonUtil.DeserializeFromEmbeddedResource<Dictionary<string, BenchDef>>(typeof(BRData).Assembly, "BenchRando.Resources.benches.json"));
         }
 
     }

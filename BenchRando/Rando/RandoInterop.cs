@@ -1,6 +1,6 @@
 ﻿using MenuChanger;
-using Modding;
 using Newtonsoft.Json;
+using RandomizerCore.Json;
 using RandomizerMod.Logging;
 using RandomizerMod.RC;
 
@@ -102,7 +102,7 @@ namespace BenchRando.Rando
             {
                 tw.WriteLine("Logging BenchRando BenchRandomizationSettings:");
                 using JsonTextWriter jtw = new(tw) { CloseOutput = false };
-                JsonUtil._js.Serialize(jtw, randoSettings);
+                JsonUtil.GetNonLogicSerializer().Serialize(jtw, randoSettings);
                 tw.WriteLine();
             }
         }

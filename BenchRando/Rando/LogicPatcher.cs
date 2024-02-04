@@ -1,5 +1,5 @@
 ﻿using RandomizerCore.Logic;
-using RandomizerCore.LogicItems;
+using RandomizerCore.StringItems;
 using RandomizerCore.StringLogic;
 using RandomizerMod.RC;
 using RandomizerMod.Settings;
@@ -52,12 +52,9 @@ namespace BenchRando.Rando
 
             foreach (string s in RandoInterop.LS.Benches)
             {
-                lmb.AddItem(new BoolItem(s, lmb.GetOrAddTerm(BRData.BenchLookup[s].GetTermName())));
-            }
-
-            foreach (string s in RandoInterop.LS.Benches)
-            {
                 BenchDef b = BRData.BenchLookup[s];
+                Term t = lmb.GetOrAddTerm(b.GetTermName());
+                lmb.AddItem(new StringItemTemplate(s, t.Name + ItemOperatorProvider.Increment));
                 lmb.AddWaypoint(new(b.GetWaypointName(), b.Logic));
                 if (!b.IsBaseBench)
                 {

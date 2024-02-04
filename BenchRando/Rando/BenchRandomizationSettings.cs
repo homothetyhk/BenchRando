@@ -1,5 +1,4 @@
 ﻿using MenuChanger.Attributes;
-using System.Runtime.InteropServices;
 
 namespace BenchRando.Rando
 {
