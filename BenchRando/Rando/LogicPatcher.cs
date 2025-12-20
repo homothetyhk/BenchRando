@@ -30,6 +30,13 @@ namespace BenchRando.Rando
 
         private const string INCLUDEBENCHWARPSELECT = "INCLUDEBENCHWARPSELECT";
 
+        private static readonly LogicClause BENCHRESET = new("$BENCHRESET");
+        private static readonly LogicClause WARPTOBENCH = new("$WARPTOBENCH");
+        private static readonly LogicClause FALSE = new("FALSE");
+        private static readonly LogicClause TRUE = new("TRUE");
+        private static readonly LogicClause ANY = new("ANY");
+        private static readonly LogicClause Start_State_and_WARPTOBENCH = new("Start_State + $WARPTOBENCH");
+
         public static void Setup()
         {
             RCData.RuntimeLogicOverride.Subscribe(0.2f, ModifyLMB);
@@ -67,10 +74,10 @@ namespace BenchRando.Rando
 
             // We rebuild the Can_Bench waypoint to use the new benches
             // This the ability to rest at any bench
-            LogicClauseBuilder canBench = new(ConstToken.False);
+            LogicClauseBuilder canBench = new(FALSE);
             foreach (string s in RandoInterop.LS.Benches)
             {
-                canBench.OrWith(BRData.BenchLookup[s].GetWaypointName(), lmb.LP);
+                canBench.OrWith(BRData.BenchLookup[s].GetWaypointName());
             }
             LogicClauseBuilder canWarpToDGBench;
             LogicClauseBuilder canWarpToBench;
@@ -82,31 +89,31 @@ namespace BenchRando.Rando
             {
                 case ItemRandoMode.WarpUnlocks:
                 case ItemRandoMode.RestAndWarpUnlocks:
-                    canWarpToDGBench = new(ConstToken.False);
-                    canWarpToBench = new(Can_Warp_To_DG_Bench, lmb.LP);
+                    canWarpToDGBench = new(FALSE);
+                    canWarpToBench = new(Can_Warp_To_DG_Bench);
                     foreach (string s in RandoInterop.LS.RandomizedBenches)
                     {
                         BenchDef def = BRData.BenchLookup[s];
-                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetTermName(), lmb.LP);
-                        else canWarpToBench.OrWith(def.GetTermName(), lmb.LP);
+                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetTermName());
+                        else canWarpToBench.OrWith(def.GetTermName());
                     }
                     foreach (string s in RandoInterop.LS.NonrandomizedBenches)
                     {
                         BenchDef def = BRData.BenchLookup[s];
-                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetWaypointName(), lmb.LP);
-                        else canWarpToBench.OrWith(def.GetWaypointName(), lmb.LP);
+                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetWaypointName());
+                        else canWarpToBench.OrWith(def.GetWaypointName());
                     }
                     break;
                 case ItemRandoMode.None:
                 case ItemRandoMode.RestUnlocks:
                 default:
-                    canWarpToDGBench = lmb.LP.ParseInfixToBuilder(INCLUDEBENCHWARPSELECT);
-                    canWarpToBench = lmb.LP.ParseInfixToBuilder(INCLUDEBENCHWARPSELECT + " + " + Can_Warp_To_DG_Bench);
+                    canWarpToDGBench = new(INCLUDEBENCHWARPSELECT);
+                    canWarpToBench = new(INCLUDEBENCHWARPSELECT + " + " + Can_Warp_To_DG_Bench);
                     foreach (string s in RandoInterop.LS.Benches)
                     {
                         BenchDef def = BRData.BenchLookup[s];
-                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetWaypointName(), lmb.LP);
-                        else canWarpToBench.OrWith(def.GetWaypointName(), lmb.LP);
+                        if (!def.DreamGateRestricted) canWarpToDGBench.OrWith(def.GetWaypointName());
+                        else canWarpToBench.OrWith(def.GetWaypointName());
                     }
                     break;
             }
@@ -161,34 +168,38 @@ namespace BenchRando.Rando
         { 
             string name = def.GetWaypointName();
             LogicClauseBuilder lcb = new(lmb.LogicLookup[name]);
-            lcb.Subst(lmb.LP.GetTermToken("$BENCHRESET"), ConstToken.True);
-            lcb.Subst(lmb.LP.GetTermToken("$WARPTOBENCH"), ConstToken.False);
+            
+            lcb.Subst(BENCHRESET, TRUE);
+            lcb.Subst(WARPTOBENCH, FALSE);
             switch (RandoInterop.LS.Settings.RandomizedItems)
             {
                 case ItemRandoMode.None:
-                    lcb.AndWith("$BENCHRESET", lmb.LP);
+                    lcb.AndWith(BENCHRESET);
                     break;
                 case ItemRandoMode.WarpUnlocks:
-                    lcb.AndWith("$BENCHRESET", lmb.LP);
-                    lcb.OrWith($"Start_State + $WARPTOBENCH + {def.GetTermName()}", lmb.LP);
+                    lcb.AndWith(BENCHRESET);
+                    lcb.OrWith(WarpUnlockOf(def));
                     break;
                 case ItemRandoMode.RestAndWarpUnlocks:
-                    lcb.AndWith($"({def.GetTermName()} + $BENCHRESET | ANY)", lmb.LP);
-                    lcb.OrWith($"Start_State + $WARPTOBENCH + {def.GetTermName()}", lmb.LP);
+                    lcb.AndWith(RestUnlockOf(def));
+                    lcb.OrWith(WarpUnlockOf(def));
                     break;
                 case ItemRandoMode.RestUnlocks:
-                    lcb.AndWith($"({def.GetTermName()} + $BENCHRESET | ANY)", lmb.LP);
+                    lcb.AndWith(RestUnlockOf(def));
                     break;
             }
             lmb.LogicLookup[name] = new(lcb);
+
+            static LogicClause WarpUnlockOf(BenchDef def) => Start_State_and_WARPTOBENCH + new LogicClause(def.GetTermName());
+            static LogicClause RestUnlockOf(BenchDef def) => (new LogicClause(def.GetTermName()) + BENCHRESET) | ANY;
         }
 
         private static void EditNonrandomizedWaypoint(LogicManagerBuilder lmb, BenchDef def)
         {
             string name = def.GetWaypointName();
             LogicClauseBuilder lcb = new(lmb.LogicLookup[name]);
-            lcb.Subst(lmb.LP.GetTermToken("$BENCHRESET"), ConstToken.True);
-            lcb.AndWith("$BENCHRESET", lmb.LP);
+            lcb.Subst(BENCHRESET, TRUE);
+            lcb.AndWith(BENCHRESET);
             lmb.LogicLookup[name] = new(lcb);
         }
     }
